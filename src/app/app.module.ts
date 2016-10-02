@@ -7,23 +7,34 @@ import { AppComponent } from './app.component';
 import { CellComponent } from './cell/cell.component';
 import { BoardComponent } from './board/board.component';
 import { PlayerComponent } from './player/player.component';
-import { Ship} from './shared/ship';
+import { Ship } from './shared/ship';
 
+
+import { routing, appRoutingProviders } from './app.routing';
+import { PageNotFoundComponent } from "./page-not-found.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+//
 
 @NgModule({
   declarations: [
     AppComponent,
     CellComponent,
     BoardComponent,
-    PlayerComponent
+    DashboardComponent,
+    PlayerComponent,
+    PageNotFoundComponent
 
   ],
   imports: [
     BrowserModule,
+    routing,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    appRoutingProviders,
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

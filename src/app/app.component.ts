@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BoardComponent} from './board/board.component';
 import { PlayerComponent} from './player/player.component';
+import { DashboardComponent} from './dashboard/dashboard.component';
 
 
 

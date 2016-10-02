@@ -14,18 +14,11 @@ export class BoardComponent implements OnInit {
   cellsCollection: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8];
 
   @Input() ships: Array<Ship>;
-  // numberOfCellsInRow: number = 8;
-  // numberOfRows: number = 8;
 
   constructor() {
   }
 
   ngOnInit() {
-
-    /*
-     this.cellsCollection = Array(8).fill().map((x, i)=>i + 1); // [1,2,3,4..8]
-     this.rowsCollection = Array(8).fill().map((x, i)=> (i + 1) * 10); // [10,20,30,40..80]
-     */
 
   }
 

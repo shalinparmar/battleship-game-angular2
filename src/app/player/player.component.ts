@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ship } from "../shared/ship";
+import { BoardComponent} from "../board/board.component";
 
 @Component({
   selector: 'app-player',
