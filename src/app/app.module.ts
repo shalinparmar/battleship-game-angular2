@@ -6,13 +6,17 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CellComponent } from './cell/cell.component';
 import { BoardComponent } from './board/board.component';
+import { PlayerComponent } from './player/player.component';
+import { Ship} from './shared/ship';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CellComponent,
-    BoardComponent
+    BoardComponent,
+    PlayerComponent
+
   ],
   imports: [
     BrowserModule,

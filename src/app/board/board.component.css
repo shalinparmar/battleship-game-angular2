@@ -1,0 +1,17 @@
+div#board {
+  background-color: lightcyan;
+  position: relative;
+  width: 374px;
+  height: 373px;
+  margin: auto;
+  /*background: url('http://codifyacademy.com/project_battleship_demo/css/../img/board.jpg') no-repeat;*/
+}
+
+tr {
+  height: 47px;
+}
+/*battleship table data cell*/
+td {
+  width: 46px;
+  height: 44px;
+}

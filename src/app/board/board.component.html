@@ -2,10 +2,13 @@
   board works!
 </p>
 
-<table>
 
-  <tr *ngFor="let row of rowsCollection">
-    <td *ngFor="let cell of cellsCollection">{{row+cell}}</td>
-  </tr>
+<div id="board">
+  <table>
 
-</table>
+    <tr *ngFor="let row of rowsCollection">
+      <td *ngFor="let cell of cellsCollection"> <app-cell [id]="row+cell" [ships] = "ships" ></app-cell> </td>
+    </tr>
+
+  </table>
+</div>

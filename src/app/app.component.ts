@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { BoardComponent} from './board/board.component';
+import { PlayerComponent} from './player/player.component';
+
+
 
 @Component({
   selector: 'app-root',
