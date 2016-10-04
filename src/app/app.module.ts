@@ -6,13 +6,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CellComponent } from './cell/cell.component';
 import { BoardComponent } from './board/board.component';
-import { PlayerComponent } from './player/player.component';
-import { Ship } from './shared/ship';
-
 
 import { routing, appRoutingProviders } from './app.routing';
 import { PageNotFoundComponent } from "./page-not-found.component";
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DemoPlayerComponent } from './demo-player/demo-player.component';
+import { StartComponent } from './start/start.component';
+
 //
 
 @NgModule({
@@ -20,9 +20,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppComponent,
     CellComponent,
     BoardComponent,
+    PageNotFoundComponent,
     DashboardComponent,
-    PlayerComponent,
-    PageNotFoundComponent
+    DemoPlayerComponent,
+    StartComponent
 
   ],
   imports: [

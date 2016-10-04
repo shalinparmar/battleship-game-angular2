@@ -5,7 +5,23 @@ import { Input } from "@angular/core/src/metadata/directives";
 
 @Component({
   selector: 'app-board',
-  templateUrl: './board.component.html',
+  template: `
+<p>
+  board works!
+</p>
+
+
+<div id="board">
+  <table>
+
+    <tr *ngFor="let row of rowsCollection">
+      <td *ngFor="let cell of cellsCollection"> <app-cell [id]="row+cell" [ships] = "ships" ></app-cell> </td>
+    </tr>
+
+  </table>
+</div>
+
+`,
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {

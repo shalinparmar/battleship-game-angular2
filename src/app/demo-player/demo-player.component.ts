@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Ship } from "../shared/ship";
-import { BoardComponent} from "../board/board.component";
 
 @Component({
-  selector: 'app-player',
-  templateUrl: './player.component.html',
-  styleUrls: ['./player.component.css']
+  selector: 'app-demo-player',
+  template: `
+    <app-board [ships]="ships"></app-board>
+  `,
+  styles: []
 })
-export class PlayerComponent implements OnInit {
-
+export class DemoPlayerComponent implements OnInit {
 
   ships: Array<Ship> = new Array<Ship>();
 
   constructor() {
   }
 
-  ngOnInit() {
 
+  ngOnInit() {
     this.ships.push(new Ship([11, 12, 13]));
     this.ships.push(new Ship([24, 34, 44, 54]));
-
   }
 
 }

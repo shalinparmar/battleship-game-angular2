@@ -2,23 +2,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from "@angular/core";
 
 import { PageNotFoundComponent } from './page-not-found.component';
-import { DashboardComponent } from "./Dashboard/dashboard.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 import { BoardComponent } from "./board/board.component";
-import { PlayerComponent } from "./player/player.component";
+import { DemoPlayerComponent } from "./demo-player/demo-player.component";
+import { StartComponent } from "./start/start.component";
 
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/player',
+    redirectTo: '/dashboard',
     pathMatch: 'full'
   },
 
   // { path: 'dashboard', component: DashboardComponent },
   { path: 'board', component: BoardComponent },
-  { path: 'player', component: PlayerComponent},
+  { path: 'start', component: StartComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'demo-player', component: DemoPlayerComponent },
 
-  { path: 'start', component: PlayerComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

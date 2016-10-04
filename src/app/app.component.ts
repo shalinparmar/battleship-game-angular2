@@ -1,15 +1,32 @@
 import { Component } from '@angular/core';
-import { BoardComponent} from './board/board.component';
-import { PlayerComponent} from './player/player.component';
-import { DashboardComponent} from './dashboard/dashboard.component';
-
-
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  // templateUrl: './app.component.html',
+  template: `
+<h1>
+  {{title}}
+</h1>
+
+
+<nav>
+  <!--<a routerLink="/dashboard" routerLinkActive="active">מסך ראשי</a>-->
+  <a class="btn btn-primary" routerLink="/demo-player" routerLinkActive="active">ניסיון</a>
+  
+  
+  <a class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">מסך ראשי</a>  
+  <a class="btn btn-primary" routerLink="/start" routerLinkActive="active">תחילת משחק</a>
+  
+   
+   
+</nav>
+
+<router-outlet></router-outlet>
+
+
+`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'משחק צוללות';
 }
