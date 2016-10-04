@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from "./page-not-found.component";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DemoPlayerComponent } from './demo-player/demo-player.component';
 import { StartComponent } from './start/start.component';
+import { GameService } from "./shared/game.service";
 
 //
 
@@ -34,6 +35,7 @@ import { StartComponent } from './start/start.component';
   ],
   providers: [
     appRoutingProviders,
+    GameService
   ],
   bootstrap: [AppComponent]
 })
