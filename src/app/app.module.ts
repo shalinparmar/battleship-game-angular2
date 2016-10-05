@@ -14,6 +14,8 @@ import { DemoPlayerComponent } from './demo-player/demo-player.component';
 import { StartComponent } from './start/start.component';
 import { GameService } from "./shared/game.service";
 
+//import { FormsModule } from "@angular/forms";
+
 //
 
 @NgModule({
