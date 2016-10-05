@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from "../shared/game.service";
 import { Player } from "../shared/player";
 
-//import { FormsModule } from "@angular/forms";
+import { FormBuilder, Validators } from '@angular/forms';
+import { ValidationService } from '../shared/validation.service';
 
 @Component({
   selector: 'app-start',
@@ -11,45 +12,34 @@ import { Player } from "../shared/player";
       בחירת המשתתפים
     </h2>
     
-<form #registrationForm="ngForm" (ngSubmit)="registerUsers(registrationForm.value)">
-    
+  <form [formGroup]="usersForm" (submit)="registerUsers()">
      <div class="form-group">
         <label for="name1">משתתף 1</label>
+ 
   
         <input type="text" id="name1" class="form-control"
-           required minlength="2" maxlength="20"
-           name="name1" [(ngModel)]="player1.name"
-           placeholder="שם המשתתף הראשון"
-           #name1="ngModel">
-          
-        <div *ngIf="name1.errors && (name1.dirty || name1.touched)" class="alert alert-danger">
-          <div [hidden]="!name1.errors.required">חובה לרשום שם משתתף</div>
-          <div [hidden]="!name1.errors.minlength">שם המשתתף חייב להיות לפחות 3 תווים</div>
-          <div [hidden]="!name1.errors.maxlength">שם המשתתף חייב להיות לפחות מקסימום 20  תווים</div>
-      </div>
+           formControlName = "name1"            
+           placeholder="שם המשתתף הראשון">
+
+       <control-messages [control]="usersForm.controls.name1"></control-messages>
+
     </div>
- 
+  
   <!--second -->
   
     <div class="form-group">
+    
+    
         <label for="name2">משתתף 2</label>
   
         <input type="text" id="name2" class="form-control"
-           required minlength="2" maxlength="20"
-           name="name2" [(ngModel)]="player2.name"
-           placeholder="שם המשתתף השני"
-           #name2="ngModel">
+           formControlName = "name2"
+           placeholder="שם המשתתף השני">
           
-        <div *ngIf="name2.errors && (name2.dirty || name2.touched)" class="alert alert-danger">
-          <div [hidden]="!name2.errors.required">חובה לרשום שם משתתף</div>
-          <div [hidden]="!name2.errors.minlength">שם המשתתף חייב להיות לפחות 3 תווים</div>
-          <div [hidden]="!name2.errors.maxlength">שם המשתתף חייב להיות לפחות מקסימום 20  תווים</div>
-        </div>
+       <control-messages [control]="usersForm.controls.name2"></control-messages>   
     </div>
       
-    <button type="submit" class="btn btn-success">המשך...</button>
-  
-  <!--default/success-->
+    <button type="submit" class="btn btn-success" [disabled]="!usersForm.valid">המשך...</button>
   
     </form>
     <hr>
@@ -62,20 +52,35 @@ import { Player } from "../shared/player";
 
 input[type=text]{
   max-width:300px;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
 }
 
-/*.separator{
-height:18px;
-}*/
+ control-messages div {
+      color: #E82C0C;
+      margin: 1px 0;
+    }
+
 `]
 })
 export class StartComponent implements OnInit {
 
+  usersForm:any;
+
+
   player1: Player;
   player2: Player;
 
-  constructor(private gameService: GameService) {
+
+  //private validationService: ValidationService
+
+  constructor(private formBuilder: FormBuilder,
+              private gameService: GameService) {
+
+    this.usersForm = this.formBuilder.group({
+      // 'name':['', Validators.required],
+      'name1':['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      'name2':['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]]
+    });
   }
 
   ngOnInit() {
@@ -91,8 +96,11 @@ export class StartComponent implements OnInit {
 
 
 
-  registerUsers(usersData) {
-    let data = JSON.stringify(usersData);
+  registerUsers() {
+    if (this.usersForm.dirty && this.usersForm.valid) {
+      alert(`Name1: ${this.usersForm.value.name1} Name2: ${this.usersForm.value.name2}`);
+    }
+    // let data = JSON.stringify(usersData);
     debugger;
     // this.http.post(CREATE_USER_ENDPOINT, data)
     //   .subscribe(

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -13,7 +13,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DemoPlayerComponent } from './demo-player/demo-player.component';
 import { StartComponent } from './start/start.component';
 import { GameService } from "./shared/game.service";
-
+import { ValidationService } from './shared/validation.service';
+import { ControlMessagesComponent } from './control-messages/control-messages.component';
 //import { FormsModule } from "@angular/forms";
 
 //
@@ -26,18 +27,21 @@ import { GameService } from "./shared/game.service";
     PageNotFoundComponent,
     DashboardComponent,
     DemoPlayerComponent,
-    StartComponent
+    StartComponent,
+    ControlMessagesComponent
 
   ],
   imports: [
     BrowserModule,
     routing,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule
   ],
   providers: [
     appRoutingProviders,
-    GameService
+    GameService,
+    ValidationService
   ],
   bootstrap: [AppComponent]
 })
