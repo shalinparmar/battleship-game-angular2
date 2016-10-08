@@ -9,7 +9,8 @@ export class ValidationService {
       'invalidCreditCard': 'Is invalid credit card number',
       'invalidEmailAddress': 'Invalid email address',
       'invalidPassword': 'Invalid password. Password must be at least 6 characters long, and contain a number.',
-      'minlength': ` מינימום ${validatorValue.requiredLength} תווים `
+      'minlength': ` מינימום ${validatorValue.requiredLength} תווים `,
+      'invalidUniqueName': 'לא ניתן לבחור שני שמות זהים'
     };
 
     return config[validatorName];
@@ -42,4 +43,35 @@ export class ValidationService {
       return { 'invalidPassword': true };
     }
   }
+
+/*
+  static uniqueNameValidator(control1, control2) {
+    let value1: string = control1.value.trim();
+    let value2: string = control2.value.trim();
+
+    if (value1 != value2) {
+      return null;
+    } else {
+      return { 'invalidUniqueName': true };
+    }
+  }
+
+
+  static matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
+    return (group: ControlGroup): {[key: string]: any} => {
+      let password = group.controls[passwordKey];
+      let confirmPassword = group.controls[confirmPasswordKey];
+
+      if (password.value !== confirmPassword.value) {
+        return {
+          mismatchedPasswords: true
+        };
+      }
+    }
+  }
+
+  */
+
+
+
 }

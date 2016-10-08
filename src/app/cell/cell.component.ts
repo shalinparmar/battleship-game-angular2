@@ -39,7 +39,7 @@ export class CellComponent implements OnInit {
     this.ships.forEach((ship) => {
       if (ship.locations.indexOf(this.id) > -1) {
         this.isContainBattleship = true;
-        console.log('xxx')
+        console.log('xxx');
         return;
       }
 

@@ -13,8 +13,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DemoPlayerComponent } from './demo-player/demo-player.component';
 import { StartComponent } from './start/start.component';
 import { GameService } from "./shared/game.service";
-import { ValidationService } from './shared/validation.service';
-import { ControlMessagesComponent } from './control-messages/control-messages.component';
+import { ValidationService } from './--not-in-use-files/validation.service';
+import { ControlMessagesComponent } from './--not-in-use-files/control-messages/control-messages.component';
+import { NotEqualValidator } from "./shared/not-equal-validator.directive";
+// import { EqualValidator } from './shared/equal-validator.directive';
+
 //import { FormsModule } from "@angular/forms";
 
 //
@@ -28,7 +31,10 @@ import { ControlMessagesComponent } from './control-messages/control-messages.co
     DashboardComponent,
     DemoPlayerComponent,
     StartComponent,
-    ControlMessagesComponent
+    ControlMessagesComponent,
+    // EqualValidator
+    NotEqualValidator
+
 
   ],
   imports: [
