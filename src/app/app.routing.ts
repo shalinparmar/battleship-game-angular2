@@ -7,6 +7,7 @@ import { BoardComponent } from "./board/board.component";
 import { DemoPlayerComponent } from "./demo-player/demo-player.component";
 import { StartComponent } from "./start/start.component";
 import { ChooseLocationsComponent } from "./choose-locations/choose-locations.component";
+import { DemoBoardComponent } from "./demo-board/demo-board.component";
 
 
 const appRoutes: Routes = [
@@ -17,7 +18,7 @@ const appRoutes: Routes = [
   },
 
   // { path: 'dashboard', component: DashboardComponent },
-  { path: 'board', component: BoardComponent },
+  { path: 'demo-board', component: DemoBoardComponent },
   { path: 'start', component: StartComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'choose-location/:id', component: ChooseLocationsComponent },

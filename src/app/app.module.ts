@@ -17,6 +17,9 @@ import { ValidationService } from './--not-in-use-files/validation.service';
 import { ControlMessagesComponent } from './--not-in-use-files/control-messages/control-messages.component';
 import { NotEqualValidator } from "./shared/not-equal-validator.directive";
 import { ChooseLocationsComponent } from './choose-locations/choose-locations.component';
+import { DemoBoardComponent } from './demo-board/demo-board.component';
+import { PotentialShipComponent } from './potential-ship/potential-ship.component';
+import { PotentialCellComponent } from './potential-cell/potential-cell.component';
 // import { EqualValidator } from './shared/equal-validator.directive';
 
 //import { FormsModule } from "@angular/forms";
@@ -35,7 +38,10 @@ import { ChooseLocationsComponent } from './choose-locations/choose-locations.co
     ControlMessagesComponent,
     // EqualValidator
     NotEqualValidator,
-    ChooseLocationsComponent
+    ChooseLocationsComponent,
+    DemoBoardComponent,
+    PotentialShipComponent,
+    PotentialCellComponent
 
 
   ],

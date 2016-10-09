@@ -8,11 +8,18 @@ import { Router } from "@angular/router";
  <div class="container">
   <h3>ברוך הבא למשחק הצוללות</h3>
 
-  <button (click)="start()" class="btn btn-primary">התחל משחק</button>
+  <button (click)="start()" class="btn btn-primary" id="btnStart">התחל משחק</button>
 </div>
 
   `,
-  styles: []
+  styles: [`
+#btnStart{
+  position: relative;
+  top: 150px;
+}
+
+
+`]
 })
 export class DashboardComponent implements OnInit {
 

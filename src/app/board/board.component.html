@@ -1,0 +1,10 @@
+ <div id="board">
+  <table border="1">
+
+    <tr *ngFor="let row of rowsCollection">
+      <app-cell *ngFor="let cell of cellsCollection" [id]="row+cell" [ships] = "ships" ></app-cell>
+    </tr>
+
+  </table>
+</div>
+

@@ -3,13 +3,13 @@ import { CellComponent } from '../cell/cell.component';
 import { Ship } from "../shared/ship";
 import { Input } from "@angular/core/src/metadata/directives";
 
-@Component({
-  selector: 'app-board',
 
-  styleUrls: ['./board.component.css'],
-  templateUrl: './board.component.html'
+@Component({
+  selector: 'app-demo-board',
+  templateUrl: './demo-board.component.html',
+  styleUrls: ['./demo-board.component.css']
 })
-export class BoardComponent implements OnInit {
+export class DemoBoardComponent implements OnInit {
 
   rowsCollection: Array<number> = [10, 20, 30, 40, 50, 60, 70, 80];
   cellsCollection: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -23,9 +23,4 @@ export class BoardComponent implements OnInit {
 
   }
 
-  clickCell(){
-
-  }
-
 }
-

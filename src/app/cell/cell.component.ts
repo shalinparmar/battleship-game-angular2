@@ -8,7 +8,7 @@ import { forEach } from "@angular/router/src/utils/collection";
 
     <td [ngClass]="getCellClass()"  >
        
- <span class="circle">{{id}}</span>      
+      <span class="circle" (click)="clickCell()">{{id}}</span>      
      </td>
   `,
   styles: [`
@@ -33,6 +33,8 @@ import { forEach } from "@angular/router/src/utils/collection";
 	-moz-border-radius: 25px;
 	-webkit-border-radius: 25px;
 	border-radius: 25px;
+	
+	cursor: pointer;
 }
   
   
@@ -61,7 +63,7 @@ export class CellComponent implements OnInit {
     this.ships.forEach((ship) => {
       if (ship.locations.indexOf(this.id) > -1) {
         this.isContainBattleship = true;
-        console.log('xxx');
+        console.log('isContainBattleship : true - ', this.id);
         return;
       }
 
@@ -74,6 +76,11 @@ export class CellComponent implements OnInit {
     return {
       'contains-ship': this.isContainBattleship
     };
+  }
+
+
+  clickCell(){
+    console.log('clickCell');
   }
 
   /*

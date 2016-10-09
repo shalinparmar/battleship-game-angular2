@@ -1,0 +1,25 @@
+<div id="potential-ship-set" [hidden]="!isSelectedShip">
+
+  <button id="switchDirectionButton" (click) = "switchDirection()" class="btn .btn-info">החלף כיוון</button>
+
+  <table border="1" [hidden]="isVertival">
+
+    <tr>
+      <td *ngFor="let cell of cellsCollection">
+        <app-potential-cell></app-potential-cell>
+      </td>
+    </tr>
+
+  </table>
+
+  <table border="1" [hidden]="!isVertival">
+
+
+    <tr *ngFor="let cell of cellsCollection">
+      <td>
+        <app-potential-cell></app-potential-cell>
+      </td>
+    </tr>
+
+  </table>
+</div>

@@ -4,7 +4,7 @@ import { Ship } from "../shared/ship";
 @Component({
   selector: 'app-demo-player',
   template: `
-    <app-board [ships]="ships"></app-board>
+    <app-demo-board [ships]="ships"></app-demo-board>
   `,
   styles: []
 })
@@ -19,7 +19,9 @@ export class DemoPlayerComponent implements OnInit {
   ngOnInit(): void {
     this.ships.push(new Ship([11, 12, 13]));
     this.ships.push(new Ship([24, 34, 44, 54]));
-    this.ships.push(new Ship([63, 64, 65, 66, 67]));
+    this.ships.push(new Ship([72, 73, 74, 75, 76]));
+    this.ships.push(new Ship([28, 38, 48]));
+    this.ships.push(new Ship([51, 52]));
   }
 
 }
