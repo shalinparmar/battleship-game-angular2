@@ -2,7 +2,11 @@
   <table border="1">
 
     <tr *ngFor="let row of rowsCollection">
-      <app-cell *ngFor="let cell of cellsCollection" [id]="row+cell" [ships] = "ships" ></app-cell>
+      <app-cell *ngFor="let cell of cellsCollection"
+                [id]="row+cell"
+                [ships] = "ships"
+                (onCellClicked)="clickCell($event)"
+      ></app-cell>
     </tr>
 
   </table>

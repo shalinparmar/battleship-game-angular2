@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
   
   
   <a class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">מסך ראשי</a>  
-  <a class="btn btn-primary" routerLink="/start" routerLinkActive="active">תחילת משחק</a>
+  <a class="btn btn-primary" routerLink="/set-players" routerLinkActive="active">תחילת משחק</a>
   
    
    

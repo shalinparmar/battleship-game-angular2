@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output , EventEmitter } from '@angular/core';
 import { Ship } from '../shared/ship';
 import { forEach } from "@angular/router/src/utils/collection";
 
@@ -45,6 +45,8 @@ export class CellComponent implements OnInit {
 
   @Input() id: number;
   @Input() ships: Array<Ship>;
+  @Output() private onCellClicked: EventEmitter<number> = new EventEmitter<number>();
+
 
   isContainBattleship: boolean = false;
   isClickable: boolean;
@@ -79,8 +81,9 @@ export class CellComponent implements OnInit {
   }
 
 
-  clickCell(){
+  clickCell() {
     console.log('clickCell');
+    this.onCellClicked.emit(this.id);
   }
 
   /*

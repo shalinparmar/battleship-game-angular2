@@ -3,6 +3,7 @@ import { Player } from "../../shared/player";
 import { GameService } from "../../shared/game.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Ship } from "../../shared/ship";
+import { PotentialShipComponent } from "../potential-ship/potential-ship.component";
 
 @Component({
   selector: 'app-choose-locations',
@@ -14,7 +15,10 @@ export class ChooseLocationsComponent implements OnInit {
   player: Player;
   isFirstPlayer: boolean;
   private subscriber: any;
+  message:string='';
 
+  currentShip:Ship=new Ship(new Array<number>());
+  currentPotentialShip:PotentialShipComponent=new PotentialShipComponent();
 
   ships: Array<Ship> = new Array<Ship>();
 
@@ -31,7 +35,6 @@ export class ChooseLocationsComponent implements OnInit {
         let id =   +params['id'];
 
         this.isFirstPlayer = (id != 2);
-
       }
     );
 
@@ -43,6 +46,10 @@ export class ChooseLocationsComponent implements OnInit {
     this.ships.push(new Ship([63, 64, 65, 66, 67]));
 
 
+  }
+
+  clickCell(id){
+    this.message='you clicked on ' + id;
   }
 
   setPlayerInfo(): void {
@@ -74,17 +81,3 @@ export class ChooseLocationsComponent implements OnInit {
 
 
 
-
-export class DemoPlayerComponent implements OnInit {
-
-  ships: Array<Ship> = new Array<Ship>();
-
-  constructor() {
-  }
-
-
-  ngOnInit(): void {
-
-  }
-
-}

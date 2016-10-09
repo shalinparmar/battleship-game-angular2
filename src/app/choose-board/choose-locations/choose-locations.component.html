@@ -5,10 +5,11 @@
   בחירת המיקומים
 </h3>
 
-<div class="col-lg-8">
-  <app-board [ships]="ships"></app-board>
-</div>
 <div class="col-lg-4">
-  <app-potential-ship></app-potential-ship>
-</div>
+  <app-board [ships]="ships" (onCellClicked)="clickCell($event)"></app-board>
 
+</div>
+<div class="col-lg-8">
+  <app-potential-ship></app-potential-ship>
+  <span class="text-danger">{{message}}</span>
+</div>
