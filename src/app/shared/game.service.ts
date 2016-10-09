@@ -12,5 +12,10 @@ export class GameService {
     this.player2 = new Player();
   }
 
+  registerPlayers(name1: string, name2: string): void {
+    // debugger;
+    this.player1.name = name1;
+    this.player2.name = name2;
+  }
 
 }

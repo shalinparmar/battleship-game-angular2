@@ -20,10 +20,10 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  start() {
+  start(): void {
     this.router.navigate(['/start']);
   }
 }

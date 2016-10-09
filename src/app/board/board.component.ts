@@ -12,10 +12,10 @@ import { Input } from "@angular/core/src/metadata/directives";
 
 
 <div id="board">
-  <table>
+  <table border="1">
 
     <tr *ngFor="let row of rowsCollection">
-      <td *ngFor="let cell of cellsCollection"> <app-cell [id]="row+cell" [ships] = "ships" ></app-cell> </td>
+      <td *ngFor="let cell of cellsCollection" style="  "> <app-cell [id]="row+cell" [ships] = "ships" ></app-cell> </td>
     </tr>
 
   </table>
@@ -34,7 +34,7 @@ export class BoardComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
   }
 

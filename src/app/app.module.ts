@@ -16,6 +16,7 @@ import { GameService } from "./shared/game.service";
 import { ValidationService } from './--not-in-use-files/validation.service';
 import { ControlMessagesComponent } from './--not-in-use-files/control-messages/control-messages.component';
 import { NotEqualValidator } from "./shared/not-equal-validator.directive";
+import { ChooseLocationsComponent } from './choose-locations/choose-locations.component';
 // import { EqualValidator } from './shared/equal-validator.directive';
 
 //import { FormsModule } from "@angular/forms";
@@ -33,7 +34,8 @@ import { NotEqualValidator } from "./shared/not-equal-validator.directive";
     StartComponent,
     ControlMessagesComponent,
     // EqualValidator
-    NotEqualValidator
+    NotEqualValidator,
+    ChooseLocationsComponent
 
 
   ],

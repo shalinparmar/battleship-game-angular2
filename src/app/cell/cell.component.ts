@@ -6,14 +6,27 @@ import { forEach } from "@angular/router/src/utils/collection";
   selector: 'app-cell',
   template: `
 
-    <td [ngClass]="getCellClass()">
-       {{id}}
-    </td>
+    <td [ngClass]="getCellClass()" style="width: 100%; text-align: center; ">
+       
+ <span class="circle">{{id}}</span>      
+     </td>
   `,
   styles: [`
     .contains-ship{
       background-color:green ;
   }
+  
+  
+.circle {
+	width: 240px;
+	height: 240px;
+	background: #51fff8;
+	-moz-border-radius: 120px;
+	-webkit-border-radius: 120px;
+	border-radius: 120px;
+}
+  
+  
 `
   ]
 })
