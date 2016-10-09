@@ -15,10 +15,14 @@ export class ChooseLocationsComponent implements OnInit {
   player: Player;
   isFirstPlayer: boolean;
   private subscriber: any;
-  message:string='';
+  message: string = '';
 
-  currentShip:Ship=new Ship(new Array<number>());
-  currentPotentialShip:PotentialShipComponent=new PotentialShipComponent();
+  currentShip: Ship = new Ship(new Array<number>());
+  currentPotentialShip: PotentialShipComponent = new PotentialShipComponent();
+  currentPotentialShipNumberOfCells:number;
+
+
+  shipsLengthList: Array<number> = new Array<number>();
 
   ships: Array<Ship> = new Array<Ship>();
 
@@ -32,24 +36,47 @@ export class ChooseLocationsComponent implements OnInit {
   ngOnInit(): void {
     this.subscriber = this.route.params.subscribe(
       params => {
-        let id =   +params['id'];
+        let id = +params['id'];
 
         this.isFirstPlayer = (id != 2);
+
+        this.setShipsLengthList();
       }
     );
 
     this.setPlayerInfo();
 
 
-    this.ships.push(new Ship([11, 12, 13,14]));
+    this.ships.push(new Ship([11, 12, 13, 14]));
     this.ships.push(new Ship([24, 34, 44, 54]));
     this.ships.push(new Ship([63, 64, 65, 66, 67]));
+
+    this.setSelectedShip(0);
 
 
   }
 
-  clickCell(id){
-    this.message='you clicked on ' + id;
+
+  setShipsLengthList() {
+    this.shipsLengthList.push(2);
+    this.shipsLengthList.push(3);
+    this.shipsLengthList.push(3);
+    this.shipsLengthList.push(4);
+    this.shipsLengthList.push(5);
+  }
+
+
+  setSelectedShip(index: number): void {
+    // debugger;
+    let numberOfCells :number = this.shipsLengthList.shift();
+    this.currentPotentialShipNumberOfCells=numberOfCells;
+
+    console.log('numberOfCells ', numberOfCells);
+    // this.currentShip = this.sh
+  }
+
+  clickCell(id) {
+    this.message = 'you clicked on ' + id;
   }
 
   setPlayerInfo(): void {
@@ -61,7 +88,7 @@ export class ChooseLocationsComponent implements OnInit {
     }
   }
 
-  setShipLocation() {
+  setShipLocation(): void {
     // this.gameService.registerPlayers(model.name1, model.name2)
 
   }

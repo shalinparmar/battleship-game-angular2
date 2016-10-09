@@ -13,17 +13,27 @@ export class PotentialShipComponent implements OnInit {
 
   isVertival: boolean;
 
-  cellsCollection: Array<number> = [1, 2, 3];
+  cellsCollection: Array<number>;
 
   constructor() {
   }
 
   ngOnInit() {
     //temp !
-    this.isSelectedShip=true;
+    this.isSelectedShip = true;
+
+    this.setCellsCollection();
   }
 
-  switchDirection(){
-    this.isVertival=!this.isVertival;
+  setCellsCollection() {
+      this.cellsCollection = this.getArrayBySize();
+  }
+
+  getArrayBySize() : Array<number>{
+    return Array.from(Array(this.size).keys());
+  }
+
+  switchDirection() {
+    this.isVertival = !this.isVertival;
   }
 }
