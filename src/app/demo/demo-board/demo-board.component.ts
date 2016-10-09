@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CellComponent } from '../cell/cell.component';
-import { Ship } from "../shared/ship";
+import { CellComponent } from '../../cell/cell.component';
+import { Ship } from "../../shared/ship";
 import { Input } from "@angular/core/src/metadata/directives";
 
 

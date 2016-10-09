@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Ship } from "../shared/ship";
+import { Ship } from "../../shared/ship";
 
 @Component({
   selector: 'app-demo-player',

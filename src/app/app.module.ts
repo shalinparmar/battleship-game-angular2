@@ -10,16 +10,17 @@ import { BoardComponent } from './board/board.component';
 import { routing, appRoutingProviders } from './app.routing';
 import { PageNotFoundComponent } from "./page-not-found.component";
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DemoPlayerComponent } from './demo-player/demo-player.component';
-import { StartComponent } from './start/start.component';
+import { DemoPlayerComponent } from './demo/demo-player/demo-player.component';
+// import { StartComponent } from './--not-in-use-files/start/start.component';
 import { GameService } from "./shared/game.service";
-import { ValidationService } from './--not-in-use-files/validation.service';
-import { ControlMessagesComponent } from './--not-in-use-files/control-messages/control-messages.component';
-import { NotEqualValidator } from "./shared/not-equal-validator.directive";
-import { ChooseLocationsComponent } from './choose-locations/choose-locations.component';
-import { DemoBoardComponent } from './demo-board/demo-board.component';
-import { PotentialShipComponent } from './potential-ship/potential-ship.component';
-import { PotentialCellComponent } from './potential-cell/potential-cell.component';
+// import { ValidationService } from './--not-in-use-files/validation.service';
+// import { ControlMessagesComponent } from './--not-in-use-files/control-messages/control-messages.component';
+// import { NotEqualValidator } from "./shared/not-equal-validator.directive";
+import { ChooseLocationsComponent } from './choose-board/choose-locations/choose-locations.component';
+import { DemoBoardComponent } from './demo/demo-board/demo-board.component';
+import { PotentialShipComponent } from './choose-board/potential-ship/potential-ship.component';
+import { PotentialCellComponent } from './choose-board/potential-cell/potential-cell.component';
+import { SetPlayersComponent } from './set-players/set-players.component';
 // import { EqualValidator } from './shared/equal-validator.directive';
 
 //import { FormsModule } from "@angular/forms";
@@ -34,14 +35,15 @@ import { PotentialCellComponent } from './potential-cell/potential-cell.componen
     PageNotFoundComponent,
     DashboardComponent,
     DemoPlayerComponent,
-    StartComponent,
-    ControlMessagesComponent,
+    // StartComponent,
+    // ControlMessagesComponent,
     // EqualValidator
-    NotEqualValidator,
+    // NotEqualValidator,
     ChooseLocationsComponent,
     DemoBoardComponent,
     PotentialShipComponent,
-    PotentialCellComponent
+    PotentialCellComponent,
+    SetPlayersComponent
 
 
   ],
@@ -55,7 +57,7 @@ import { PotentialCellComponent } from './potential-cell/potential-cell.componen
   providers: [
     appRoutingProviders,
     GameService,
-    ValidationService
+    // ValidationService
   ],
   bootstrap: [AppComponent]
 })

@@ -31,6 +31,6 @@ export class DashboardComponent implements OnInit {
   }
 
   start(): void {
-    this.router.navigate(['/start']);
+    this.router.navigate(['/set-players']);
   }
 }

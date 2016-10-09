@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Player } from "../shared/player";
-import { GameService } from "../shared/game.service";
+import { Player } from "../../shared/player";
+import { GameService } from "../../shared/game.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Ship } from "../shared/ship";
+import { Ship } from "../../shared/ship";
 
 @Component({
   selector: 'app-choose-locations',
