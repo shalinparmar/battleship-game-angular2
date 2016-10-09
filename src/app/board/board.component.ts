@@ -15,7 +15,7 @@ import { Input } from "@angular/core/src/metadata/directives";
   <table border="1">
 
     <tr *ngFor="let row of rowsCollection">
-      <td *ngFor="let cell of cellsCollection" style="  "> <app-cell [id]="row+cell" [ships] = "ships" ></app-cell> </td>
+       <app-cell *ngFor="let cell of cellsCollection" [id]="row+cell" [ships] = "ships" ></app-cell>  
     </tr>
 
   </table>
