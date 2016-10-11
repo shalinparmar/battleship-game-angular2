@@ -10,8 +10,8 @@ import { Input } from "@angular/core/src/metadata/directives";
 export class PotentialCellComponent implements OnInit {
 
 
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

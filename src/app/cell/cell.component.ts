@@ -1,80 +1,58 @@
-import { Component, OnInit, Input, Output , EventEmitter } from '@angular/core';
-import { Ship } from '../shared/ship';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+// import { Ship } from '../shared/ship';
 import { forEach } from "@angular/router/src/utils/collection";
+import { Ship } from "../shared/ship";
 
 @Component({
   selector: 'app-cell',
   template: `
 
     <td [ngClass]="getCellClass()"  >
-       
-      <span class="circle" (click)="clickCell()">{{id}}</span>      
+      <span class="circle" (click)="clickCell()">{{id}}-{{isContainBattleshipString}}</span>      
      </td>
   `,
-  styles: [`
-    .contains-ship{ 
-      background-color:green ;
-  }
-  
-  td {
-  width: 55px;
-  height: 55px;
-}
-
-.circle {
-  display: inline-block;
-  text-align: center;
-  line-height: 50px;/*vertical-align: middle;*/
-  margin: 2px;
-  
-	width: 50px;
-	height: 50px;
-	background: #51fff8;
-	-moz-border-radius: 25px;
-	-webkit-border-radius: 25px;
-	border-radius: 25px;
-	
-	cursor: pointer;
-}
-  
-  
-`
-  ]
+  styleUrls: ['./cell.component.css'],
 })
 export class CellComponent implements OnInit {
 
   @Input() id: number;
   @Input() ships: Array<Ship>;
+  @Input() isContainBattleship: boolean;
+  // @Input() isContainBattleshipString: string;
+
   @Output() private onCellClicked: EventEmitter<number> = new EventEmitter<number>();
 
-
-  isContainBattleship: boolean = false;
   isClickable: boolean;
   isExposed: boolean;
 
   constructor() {
+
   }
 
   ngOnInit() {
-    this.checkIsContainBattleship();
+    // this.checkIsContainBattleship();
   }
 
 
-  checkIsContainBattleship() {
+    /* checkIsContainBattleship() {
 
-    this.ships.forEach((ship) => {
-      if (ship.locations.indexOf(this.id) > -1) {
-        this.isContainBattleship = true;
-        console.log('isContainBattleship : true - ', this.id);
-        return;
-      }
+     this.ships.forEach((ship) => {
+     if (ship.locations.indexOf(this.id) > -1) {
+     this.isContainBattleship = true;
+     console.log('isContainBattleship : true - ', this.id);
+     return;
+     }
 
-    });
+     });
+     }
 
-  }
+     */
+
 
 
   getCellClass() {
+    // debugger;
+    console.log('this.isContainBattleship : ', this.isContainBattleship)
     return {
       'contains-ship': this.isContainBattleship
     };
@@ -83,6 +61,7 @@ export class CellComponent implements OnInit {
 
   clickCell() {
     console.log('clickCell');
+
     this.onCellClicked.emit(this.id);
   }
 

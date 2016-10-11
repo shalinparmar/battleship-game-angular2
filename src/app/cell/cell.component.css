@@ -1,0 +1,24 @@
+.contains-ship{
+  background-color:green ;
+}
+
+td {
+  width: 55px;
+  height: 55px;
+}
+
+.circle {
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;/*vertical-align: middle;*/
+  margin: 2px;
+
+  width: 50px;
+  height: 50px;
+  background: #c0fff3;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+
+  cursor: pointer;
+}

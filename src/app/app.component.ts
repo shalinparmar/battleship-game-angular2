@@ -2,27 +2,22 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  // templateUrl: './app.component.html',
   template: `
 <div class="container" dir="rtl">
-<h1>
-  {{title}}
-</h1>
-
-
-<nav>
-  <!--<a routerLink="/dashboard" routerLinkActive="active">מסך ראשי</a>-->
-  <a class="btn btn-primary" routerLink="/demo-player" routerLinkActive="active">ניסיון</a>
+  <h1>
+    {{title}}
+  </h1>
   
   
-  <a class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">מסך ראשי</a>  
-  <a class="btn btn-primary" routerLink="/set-players" routerLinkActive="active">תחילת משחק</a>
+  <nav>
+    <a class="btn btn-primary" routerLink="/demo-player" routerLinkActive="active">ניסיון</a>
+    
+    <a class="btn btn-primary" routerLink="/dashboard" routerLinkActive="active">מסך ראשי</a>  
+    <a class="btn btn-primary" routerLink="/set-players" routerLinkActive="active">תחילת משחק</a>
+     
+  </nav>
   
-   
-   
-</nav>
-
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
 
 `,

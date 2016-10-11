@@ -11,7 +11,7 @@ export class PotentialShipComponent implements OnInit {
   @Input() isSelectedShip: boolean;
   @Input() size: number;
 
-  isVertival: boolean;
+  @Input() isVertical: boolean;
 
   cellsCollection: Array<number>;
 
@@ -26,14 +26,12 @@ export class PotentialShipComponent implements OnInit {
   }
 
   setCellsCollection() {
-      this.cellsCollection = this.getArrayBySize();
+    this.cellsCollection = this.getArrayBySize();
   }
 
-  getArrayBySize() : Array<number>{
+  getArrayBySize(): Array<number> {
     return Array.from(Array(this.size).keys());
   }
 
-  switchDirection() {
-    this.isVertival = !this.isVertival;
-  }
+
 }

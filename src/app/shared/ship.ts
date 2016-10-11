@@ -1,7 +1,7 @@
-export class Ship {
-  locations: Array<number>;
+import { ShipBase } from "./ship-base";
 
+export class Ship extends  ShipBase{
   constructor(locations: Array<number>) {
-    this.locations = locations;
+    super(locations);
   }
 }
