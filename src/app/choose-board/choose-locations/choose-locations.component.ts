@@ -13,21 +13,22 @@ import { ValidationResult } from "../../shared/validation-result";
   styleUrls: ['./choose-locations.component.css']
 })
 export class ChooseLocationsComponent implements OnInit {
+  cellsOfShips: Array<number> = new Array<number>();
+
   player: Player;
   isFirstPlayer: boolean;
   message: string = '';
   isVertical: boolean;
+
   private subscriber: any;
-cellsOfShips:Array<number>=new Array<number>();
 
   currentShip: Ship = new Ship(new Array<number>());
-  currentPotentialShip: PotentialShipComponent = new PotentialShipComponent();
-  currentPotentialShipNumberOfCells: number;
-
 
   shipsLengthList: Array<number> = new Array<number>();
-
   ships: Array<Ship> = new Array<Ship>();
+
+  currentPotentialShip: PotentialShipComponent = new PotentialShipComponent();
+  currentPotentialShipNumberOfCells: number;
 
   constructor(private gameService: GameService,
               private router: Router,
@@ -46,37 +47,20 @@ cellsOfShips:Array<number>=new Array<number>();
 
   initDemoShips() {
 
-    let shipToAdd: ShipToLocate ;
+    let shipToAdd: ShipToLocate;
 
-    shipToAdd=new ShipToLocate(false,4,11);
+    shipToAdd = new ShipToLocate(false, 4, 11);
     this.addShipToList(shipToAdd);
 
-    shipToAdd=new ShipToLocate(true,4,24);
+    shipToAdd = new ShipToLocate(true, 4, 24);
     this.addShipToList(shipToAdd);
 
-    shipToAdd=new ShipToLocate(false,5,63);
-    this.    addShipToList(shipToAdd);
-
-    // this.addShipToLis();
-    // this.ships.push(new Ship([24, 34, 44, 54]));
-    // this.ships.push(new Ship([63, 64, 65, 66, 67]));
+    shipToAdd = new ShipToLocate(false, 5, 63);
+    this.addShipToList(shipToAdd);
   }
 
-  // private addShipToLis() {
-  //   this.ships.push(new Ship([11, 12, 13, 14]));
-  //
-  //
-  // }
-
   addShipToList(shipToLocate: ShipToLocate) {
-
-    // debugger;
-    //
     let shipToAdd: Ship = new Ship(shipToLocate.locations);
-    // shipToLocate.map((ship)=>new Ship());
-
-    //this not updating, due to change detection - same reference
-    // this.ships.push(shipToAdd);
 
     // console.log(this.ships);
     this.ships = [...this.ships, shipToAdd];
@@ -85,13 +69,7 @@ cellsOfShips:Array<number>=new Array<number>();
     this.message = "add new ship !!! length : " + shipToLocate.locations.length;
 
     shipToLocate.locations.forEach((id)=>this.cellsOfShips.push(id));
-
-    // console.log('cellsOfShips:');
-    // console.table(this.cellsOfShips);
   }
-
-
-
 
   private setPlayerByRouteParams() {
     this.subscriber = this.route.params.subscribe(
@@ -106,11 +84,12 @@ cellsOfShips:Array<number>=new Array<number>();
   }
 
   initShipsLengthList() {
-    this.shipsLengthList.push(2);
-    this.shipsLengthList.push(3);
-    this.shipsLengthList.push(3);
-    this.shipsLengthList.push(4);
-    this.shipsLengthList.push(5);
+    this.shipsLengthList=[2,3,3,4,5]
+    //   .push(2);
+    // this.shipsLengthList.push(3);
+    // this.shipsLengthList.push(3);
+    // this.shipsLengthList.push(4);
+    // this.shipsLengthList.push(5);
   }
 
   switchDirection() {
@@ -124,7 +103,6 @@ cellsOfShips:Array<number>=new Array<number>();
 
     this.resetSettings();
   }
-
 
   private resetSettings() {
     this.isVertical = false;
@@ -197,27 +175,5 @@ cellsOfShips:Array<number>=new Array<number>();
   }
 
 
-
-
-/*
-  isContainShip(id: number): boolean {
-    return this.cellsOfShips.indexOf(id)>-1;
-    // this.ships.forEach((ship) => {
-    //   if (ship.locations.indexOf(id) > -1) {
-    //     // this.isContainBattleship = true;
-    //     console.log('isContainBattleship : true - ', id);
-    //     // debugger;
-    //     return true;
-    //   }
-    // });
-    //
-    // return false;
-  }*/
-
-
 }
-
-
-
-
 

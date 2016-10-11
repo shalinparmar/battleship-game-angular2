@@ -2,9 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Input } from "@angular/core/src/metadata/directives";
 import { Ship } from "../shared/ship";
 
-// import { CellComponent } from '../cell/cell.component';
-// import { ShipBase } from "../shared/ship-base";
-
 @Component({
   selector: 'app-board',
   styleUrls: ['./board.component.css'],
@@ -34,49 +31,8 @@ export class BoardComponent implements OnInit {
     this.onCellClicked.emit(id);
   }
 
-
   isContainShip(id: number): boolean {
     return this.cellsOfShips.indexOf(id)>-1;
-    // this.ships.forEach((ship) => {
-    //   if (ship.locations.indexOf(id) > -1) {
-    //     // this.isContainBattleship = true;
-    //     console.log('isContainBattleship : true - ', id);
-    //     // debugger;
-    //     return true;
-    //   }
-    // });
-    //
-    // return false;
   }
 
-  /*isContainShip(id: number): boolean {
-    this.ships.forEach((ship) => {
-      if (ship.locations.indexOf(id) > -1) {
-        // this.isContainBattleship = true;
-        // console.log('isContainBattleship : true - ', id);
-        // debugger;
-        return true;
-      }
-    });
-
-    return false;
-  }*/
-
-
- /* isContainShipString(id: number): string {
-    //debugger;
-    this.ships.forEach((ship) => {
-      if (ship.locations.indexOf(id) > -1) {
-        // this.isContainBattleship = true;
-        console.log('isContainBattleship : true - ', id);
-        // debugger;
-        return '1';
-      }
-    });
-
-    return '0';
-  }*/
-
-
 }
-

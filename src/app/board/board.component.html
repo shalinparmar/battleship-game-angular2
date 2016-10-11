@@ -6,12 +6,8 @@
                 [id]="row+cell"
                 [ships] = "ships"
                 (onCellClicked)="clickCell($event)"
-                [isContainBattleship]="isContainShip(row+cell)"
-
-
-      ></app-cell>
-
-      <!--[isContainBattleshipString]="isContainShipString(row+cell)"-->
+                [isContainBattleship]="isContainShip(row+cell)">
+      </app-cell>
     </tr>
 
   </table>
