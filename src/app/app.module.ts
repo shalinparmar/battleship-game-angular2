@@ -10,22 +10,14 @@ import { BoardComponent } from './board/board.component';
 import { routing, appRoutingProviders } from './app.routing';
 import { PageNotFoundComponent } from "./page-not-found.component";
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DemoPlayerComponent } from './demo/demo-player/demo-player.component';
-// import { StartComponent } from './--not-in-use-files/start/start.component';
 import { GameService } from "./shared/game.service";
-// import { ValidationService } from './--not-in-use-files/validation.service';
-// import { ControlMessagesComponent } from './--not-in-use-files/control-messages/control-messages.component';
-// import { NotEqualValidator } from "./shared/not-equal-validator.directive";
+import { NotEqualValidator } from "./shared/not-equal-validator.directive";
 import { ChooseLocationsComponent } from './choose-board/choose-locations/choose-locations.component';
 import { DemoBoardComponent } from './demo/demo-board/demo-board.component';
 import { PotentialShipComponent } from './choose-board/potential-ship/potential-ship.component';
 import { PotentialCellComponent } from './choose-board/potential-cell/potential-cell.component';
 import { SetPlayersComponent } from './set-players/set-players.component';
-// import { EqualValidator } from './shared/equal-validator.directive';
-
-//import { FormsModule } from "@angular/forms";
-
-//
+import { DemoPlayerComponent } from './demo/demo-player/demo-player.component';
 
 @NgModule({
   declarations: [
@@ -34,18 +26,13 @@ import { SetPlayersComponent } from './set-players/set-players.component';
     BoardComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    DemoPlayerComponent,
-    // StartComponent,
-    // ControlMessagesComponent,
-    // EqualValidator
-    // NotEqualValidator,
+    NotEqualValidator,
     ChooseLocationsComponent,
     DemoBoardComponent,
     PotentialShipComponent,
     PotentialCellComponent,
-    SetPlayersComponent
-
-
+    SetPlayersComponent,
+    DemoPlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +44,6 @@ import { SetPlayersComponent } from './set-players/set-players.component';
   providers: [
     appRoutingProviders,
     GameService,
-    // ValidationService
   ],
   bootstrap: [AppComponent]
 })

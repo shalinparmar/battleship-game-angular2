@@ -13,7 +13,7 @@ import { Validator, AbstractControl, NG_VALIDATORS } from '@angular/forms';
 })
 export class NotEqualValidator implements Validator {
   constructor( @Attribute('validateNotEqual') public validateNotEqual: string) {
-
+    console.log('init NotEqualValidator');
   }
 
   validate(c: AbstractControl): { [key: string]: any } {
@@ -31,6 +31,7 @@ export class NotEqualValidator implements Validator {
       }
 
     }
+
 
     // value not equal and reverse
     if (e && e.errors && v !== e.value ) {

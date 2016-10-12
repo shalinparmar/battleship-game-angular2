@@ -1,27 +1,77 @@
 import { Component, OnInit } from '@angular/core';
 import { Ship } from "../../shared/ship";
+import { ShipToLocate } from "../../shared/ship-to-locate";
 
 @Component({
   selector: 'app-demo-player',
-  template: `
-    <app-demo-board [ships]="ships"></app-demo-board>
-  `,
-  styles: []
+  templateUrl: './demo-player.component.html',
+  styleUrls: ['./demo-player.component.css']
 })
 export class DemoPlayerComponent implements OnInit {
 
+
+  cellsOfShips: Array<number> = new Array<number>();
+
+  message: string = '';
+  // currentShip: Ship = new Ship(new Array<number>());
+
+  shipsLengthList: Array<number> = new Array<number>();
   ships: Array<Ship> = new Array<Ship>();
 
-  constructor() {
-  }
 
+  constructor() { }
 
   ngOnInit(): void {
-    this.ships.push(new Ship([11, 12, 13]));
-    this.ships.push(new Ship([24, 34, 44, 54]));
-    this.ships.push(new Ship([72, 73, 74, 75, 76]));
-    this.ships.push(new Ship([28, 38, 48]));
-    this.ships.push(new Ship([51, 52]));
+    // this.setPlayerByRouteParams();
+
+    // this.setPlayerInfo();
+
+    this.initDemoShips();
+
+    this.getNextShip();
   }
 
+  initDemoShips() {
+
+    let shipToAdd: ShipToLocate;
+
+    shipToAdd = new ShipToLocate(false, 4, 11);
+    this.addShipToList(shipToAdd);
+
+    shipToAdd = new ShipToLocate(true, 4, 24);
+    this.addShipToList(shipToAdd);
+
+    shipToAdd = new ShipToLocate(false, 5, 63);
+    this.addShipToList(shipToAdd);
+  }
+
+  addShipToList(shipToLocate: ShipToLocate) {
+    let shipToAdd: Ship = new Ship(shipToLocate.locations);
+
+    // console.log(this.ships);
+    this.ships = [...this.ships, shipToAdd];
+    // console.log(this.ships);
+
+    this.message = "add new ship !!! length : " + shipToLocate.locations.length;
+
+    shipToLocate.locations.forEach((id)=>this.cellsOfShips.push(id));
+  }
+
+  getNextShip(): void {
+    // let numberOfCells: number = this.shipsLengthList.shift();
+    //
+    // if (numberOfCells) {
+    //   this.setSelectedShip(numberOfCells);
+    // }
+    // else {
+    //   this.continueToNextStep();
+    // }
+  }
+
+  private displayValidationMessage(message: string) {
+    this.message = message;
+  }
+
+
 }
+

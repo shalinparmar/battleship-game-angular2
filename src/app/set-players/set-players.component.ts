@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from "../shared/game.service";
-// import { Player } from "../shared/player";
 
 import { Users } from "../shared/users.interface";
 import { Router } from "@angular/router";
-
 
 @Component({
   selector: 'app-set-players',
@@ -29,7 +27,6 @@ export class SetPlayersComponent implements OnInit {
     }
 
   }
-
 
   registerUsers(model: Users, isValid: boolean): void {
     this.gameService.registerPlayers(model.name1, model.name2)

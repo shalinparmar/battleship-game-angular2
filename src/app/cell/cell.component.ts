@@ -8,7 +8,7 @@ import { Ship } from "../shared/ship";
   template: `
 
     <td [ngClass]="getCellClass()"  >
-      <span class="circle" (click)="clickCell()">{{id}}-{{isContainBattleshipString}}</span>      
+      <span class="circle" (click)="clickCell()">{{id}}</span>      
      </td>
   `,
   styleUrls: ['./cell.component.css'],
