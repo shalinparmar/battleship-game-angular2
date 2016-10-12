@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-// import { Ship } from '../shared/ship';
-import { forEach } from "@angular/router/src/utils/collection";
+
 import { Ship } from "../shared/ship";
 
 @Component({

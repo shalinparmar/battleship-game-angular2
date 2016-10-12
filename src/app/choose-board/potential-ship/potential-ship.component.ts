@@ -8,7 +8,7 @@ import { Input } from "@angular/core/src/metadata/directives";
 })
 export class PotentialShipComponent implements OnInit {
 
-  @Input() isSelectedShip: boolean;
+  // @Input() isSelectedShip: boolean;
   @Input() size: number;
 
   @Input() isVertical: boolean;
@@ -20,7 +20,7 @@ export class PotentialShipComponent implements OnInit {
 
   ngOnInit() {
     //temp !
-    this.isSelectedShip = true;
+    // this.isSelectedShip = true;
 
     this.setCellsCollection();
   }

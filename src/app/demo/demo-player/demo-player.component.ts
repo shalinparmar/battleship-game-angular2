@@ -12,23 +12,10 @@ export class DemoPlayerComponent implements OnInit {
 
   cellsOfShips: Array<number> = new Array<number>();
 
-  message: string = '';
-  // currentShip: Ship = new Ship(new Array<number>());
-
-  shipsLengthList: Array<number> = new Array<number>();
-  ships: Array<Ship> = new Array<Ship>();
-
-
   constructor() { }
 
   ngOnInit(): void {
-    // this.setPlayerByRouteParams();
-
-    // this.setPlayerInfo();
-
     this.initDemoShips();
-
-    this.getNextShip();
   }
 
   initDemoShips() {
@@ -48,30 +35,9 @@ export class DemoPlayerComponent implements OnInit {
   addShipToList(shipToLocate: ShipToLocate) {
     let shipToAdd: Ship = new Ship(shipToLocate.locations);
 
-    // console.log(this.ships);
-    this.ships = [...this.ships, shipToAdd];
-    // console.log(this.ships);
+    // this.ships = [...this.ships, shipToAdd];
 
-    this.message = "add new ship !!! length : " + shipToLocate.locations.length;
 
     shipToLocate.locations.forEach((id)=>this.cellsOfShips.push(id));
   }
-
-  getNextShip(): void {
-    // let numberOfCells: number = this.shipsLengthList.shift();
-    //
-    // if (numberOfCells) {
-    //   this.setSelectedShip(numberOfCells);
-    // }
-    // else {
-    //   this.continueToNextStep();
-    // }
-  }
-
-  private displayValidationMessage(message: string) {
-    this.message = message;
-  }
-
-
 }
-

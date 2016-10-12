@@ -25,7 +25,7 @@ export class ChooseLocationsComponent implements OnInit {
   currentShip: Ship = new Ship(new Array<number>());
 
   shipsLengthList: Array<number> = new Array<number>();
-  ships: Array<Ship> = new Array<Ship>();
+  ships: Array<Ship>;//= new Array<Ship>();
 
   currentPotentialShip: PotentialShipComponent = new PotentialShipComponent();
   currentPotentialShipNumberOfCells: number;
@@ -39,6 +39,8 @@ export class ChooseLocationsComponent implements OnInit {
     this.setPlayerByRouteParams();
 
     this.setPlayerInfo();
+
+    this.setPlayerShipsByService();
 
     this.initDemoShips();
 
@@ -62,11 +64,7 @@ export class ChooseLocationsComponent implements OnInit {
   addShipToList(shipToLocate: ShipToLocate) {
     let shipToAdd: Ship = new Ship(shipToLocate.locations);
 
-    // console.log(this.ships);
-    this.ships = [...this.ships, shipToAdd];
-    // console.log(this.ships);
-
-    this.message = "add new ship !!! length : " + shipToLocate.locations.length;
+    this.player.ships = [...this.player.ships, shipToAdd];
 
     shipToLocate.locations.forEach((id)=>this.cellsOfShips.push(id));
   }
@@ -84,12 +82,7 @@ export class ChooseLocationsComponent implements OnInit {
   }
 
   initShipsLengthList() {
-    this.shipsLengthList=[2,3,3,4,5]
-    //   .push(2);
-    // this.shipsLengthList.push(3);
-    // this.shipsLengthList.push(3);
-    // this.shipsLengthList.push(4);
-    // this.shipsLengthList.push(5);
+    this.shipsLengthList = [2, 3, 3, 4, 5]
   }
 
   switchDirection() {
@@ -99,19 +92,19 @@ export class ChooseLocationsComponent implements OnInit {
   setSelectedShip(numberOfCells: number): void {
     this.currentPotentialShipNumberOfCells = numberOfCells;
 
-    console.log('numberOfCells ', numberOfCells);
-
     this.resetSettings();
   }
 
   private resetSettings() {
     this.isVertical = false;
-
     this.currentShip = null;
     this.currentPotentialShip = null;
   }
 
   clickCell(id) {
+
+    this.resetMessage();
+
     console.log('you clicked on ', id);
 
     let shipToLocate: ShipToLocate =
@@ -153,9 +146,12 @@ export class ChooseLocationsComponent implements OnInit {
     }
   }
 
-  /*setShipLocation(): void {
-   // this.gameService.registerPlayers(model.name1, model.name2)
-   }*/
+  setPlayerShipsByService(): void {
+    this.ships = this.player.ships;
+  }
+
+
+
 
   finishChoose(): void {
 //if first then
@@ -165,13 +161,25 @@ export class ChooseLocationsComponent implements OnInit {
   }
 
   private continueToNextStep() {
+    // this.updateService();
+
     console.log('next step');
+
+    //display button for next step
+    //prevent update screen
+    //todo: cont here
+
   }
 
   private isValidLocationForShip(shipToLocate: ShipToLocate): ValidationResult {
     //check if in board and also if not already by other ship
     //tbd !!!
     return new ValidationResult(true, '');
+  }
+
+
+  private resetMessage() {
+    this.message = '';
   }
 
 
