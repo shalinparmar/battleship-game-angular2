@@ -18,6 +18,7 @@ export class DemoPlayerComponent implements OnInit {
     this.initDemoShips();
   }
 
+
   initDemoShips() {
 
     let shipToAdd: ShipToLocate;
@@ -25,10 +26,16 @@ export class DemoPlayerComponent implements OnInit {
     shipToAdd = new ShipToLocate(false, 4, 11);
     this.addShipToList(shipToAdd);
 
-    shipToAdd = new ShipToLocate(true, 4, 24);
+    shipToAdd = new ShipToLocate(true, 4, 16);
     this.addShipToList(shipToAdd);
 
     shipToAdd = new ShipToLocate(false, 5, 63);
+    this.addShipToList(shipToAdd);
+
+    shipToAdd = new ShipToLocate(false, 3, 41);
+    this.addShipToList(shipToAdd);
+
+    shipToAdd = new ShipToLocate(true, 3, 28);
     this.addShipToList(shipToAdd);
   }
 

@@ -10,6 +10,8 @@ import { Ship } from "../shared/ship";
 export class BoardComponent implements OnInit {
 
   @Input() ships: Array<Ship>;
+
+
   @Input() cellsOfShips: Array<number>;
 
   @Output() private onCellClicked: EventEmitter<number> = new EventEmitter<number>();

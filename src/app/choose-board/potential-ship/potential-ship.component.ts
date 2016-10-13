@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChange } from '@angular/core';
 import { Input } from "@angular/core/src/metadata/directives";
 
 @Component({
@@ -6,26 +6,23 @@ import { Input } from "@angular/core/src/metadata/directives";
   templateUrl: './potential-ship.component.html',
   styleUrls: ['./potential-ship.component.css']
 })
-export class PotentialShipComponent implements OnInit {
+export class PotentialShipComponent implements OnInit, OnChanges {
 
-  // @Input() isSelectedShip: boolean;
   @Input() size: number;
-
   @Input() isVertical: boolean;
+
+  @Input() detectChangeInParent: any;
 
   cellsCollection: Array<number>;
 
   constructor() {
   }
 
-  ngOnInit() {
-    //temp !
-    // this.isSelectedShip = true;
-
+  ngOnInit(): void {
     this.setCellsCollection();
   }
 
-  setCellsCollection() {
+  setCellsCollection(): void {
     this.cellsCollection = this.getArrayBySize();
   }
 
@@ -33,5 +30,8 @@ export class PotentialShipComponent implements OnInit {
     return Array.from(Array(this.size).keys());
   }
 
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}): void {
+      this.setCellsCollection();
+  }
 
 }

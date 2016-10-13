@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Input } from "@angular/core/src/metadata/directives";
-
 
 @Component({
   selector: 'app-potential-cell',
@@ -17,4 +15,3 @@ export class PotentialCellComponent implements OnInit {
   }
 
 }
-

@@ -28,7 +28,7 @@ export class ChooseLocationsComponent implements OnInit {
   ships: Array<Ship>;//= new Array<Ship>();
 
   currentPotentialShip: PotentialShipComponent = new PotentialShipComponent();
-  currentPotentialShipNumberOfCells: number;
+  currentShipNumberOfCells: number;
 
   constructor(private gameService: GameService,
               private router: Router,
@@ -54,10 +54,16 @@ export class ChooseLocationsComponent implements OnInit {
     shipToAdd = new ShipToLocate(false, 4, 11);
     this.addShipToList(shipToAdd);
 
-    shipToAdd = new ShipToLocate(true, 4, 24);
+    shipToAdd = new ShipToLocate(true, 4, 26);
     this.addShipToList(shipToAdd);
 
-    shipToAdd = new ShipToLocate(false, 5, 63);
+    shipToAdd = new ShipToLocate(false, 5, 72);
+    this.addShipToList(shipToAdd);
+
+    shipToAdd = new ShipToLocate(false, 3, 41);
+    this.addShipToList(shipToAdd);
+
+    shipToAdd = new ShipToLocate(true, 3, 18);
     this.addShipToList(shipToAdd);
   }
 
@@ -90,8 +96,7 @@ export class ChooseLocationsComponent implements OnInit {
   }
 
   setSelectedShip(numberOfCells: number): void {
-    this.currentPotentialShipNumberOfCells = numberOfCells;
-
+    this.currentShipNumberOfCells = numberOfCells;
     this.resetSettings();
   }
 
@@ -108,7 +113,7 @@ export class ChooseLocationsComponent implements OnInit {
     console.log('you clicked on ', id);
 
     let shipToLocate: ShipToLocate =
-      new ShipToLocate(this.isVertical, this.currentPotentialShipNumberOfCells, id);
+      new ShipToLocate(this.isVertical, this.currentShipNumberOfCells, id);
 
     let validationResult: ValidationResult = this.isValidLocationForShip(shipToLocate);
 
@@ -149,8 +154,6 @@ export class ChooseLocationsComponent implements OnInit {
   setPlayerShipsByService(): void {
     this.ships = this.player.ships;
   }
-
-
 
 
   finishChoose(): void {
