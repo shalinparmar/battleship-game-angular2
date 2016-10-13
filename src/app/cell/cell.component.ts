@@ -7,7 +7,7 @@ import { Ship } from "../shared/ship";
   template: `
 
     <td [ngClass]="getCellClass()"  >
-      <span class="circle" (click)="clickCell()">{{id}}</span>      
+      <span [ngClass]="getCircleClass()" (click)="clickCell()">{{id}}</span>      
      </td>
   `,
   styleUrls: ['./cell.component.css'],
@@ -17,7 +17,7 @@ export class CellComponent implements OnInit {
   @Input() id: number;
   @Input() ships: Array<Ship>;
   @Input() isContainBattleship: boolean;
-  // @Input() isContainBattleshipString: string;
+  @Input() isDisableChanges: boolean;
 
   @Output() private onCellClicked: EventEmitter<number> = new EventEmitter<number>();
 
@@ -29,17 +29,28 @@ export class CellComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.checkIsContainBattleship();
+
   }
 
-  getCellClass() {
+  getCellClass(): any {
     return {
       'contains-ship': this.isContainBattleship
     };
   }
 
+  getCircleClass(): any {
+    return {
+      'circle': true,
+      'circle-pointer': !this.isDisableChanges
+    }
+  }
+
   clickCell() {
     console.log('clickCell');
+
+    if (this.isDisableChanges) {
+      return;
+    }
 
     this.onCellClicked.emit(this.id);
   }

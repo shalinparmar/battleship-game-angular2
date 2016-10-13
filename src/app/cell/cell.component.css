@@ -1,5 +1,5 @@
-.contains-ship{
-  background-color:green ;
+.contains-ship {
+  background-color: green;
 }
 
 td {
@@ -10,7 +10,7 @@ td {
 .circle {
   display: inline-block;
   text-align: center;
-  line-height: 50px;/*vertical-align: middle;*/
+  line-height: 50px; /*vertical-align: middle;*/
   margin: 2px;
 
   width: 50px;
@@ -20,5 +20,8 @@ td {
   -webkit-border-radius: 25px;
   border-radius: 25px;
 
+}
+
+.circle-pointer {
   cursor: pointer;
 }

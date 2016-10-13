@@ -20,6 +20,9 @@ export class ChooseLocationsComponent implements OnInit {
   message: string = '';
   isVertical: boolean;
 
+  isFinishedChoosing: boolean = false;
+
+
   private subscriber: any;
 
   currentShip: Ship = new Ship(new Array<number>());
@@ -37,14 +40,14 @@ export class ChooseLocationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.setPlayerByRouteParams();
-
-    this.setPlayerInfo();
-
-    this.setPlayerShipsByService();
-
-    this.initDemoShips();
-
-    this.getNextShip();
+    //
+    // this.setPlayerInfo();
+    //
+    // this.setPlayerShipsByService();
+    //
+    // this.initDemoShips();
+    //
+    // this.getNextShip();
   }
 
   initDemoShips() {
@@ -82,12 +85,45 @@ export class ChooseLocationsComponent implements OnInit {
 
         this.isFirstPlayer = (id != 2);
 
-        this.initShipsLengthList();
+        this.initPage();
       }
     );
   }
 
+  private initPage() {
+    console.log('init page');
+
+    this.resetVariables();
+
+    this.setPlayerInfo();
+
+    this.setPlayerShipsByService();
+
+    this.initDemoShips();
+
+    this.initShipsLengthList();
+
+    this.getNextShip();
+  }
+
+  private resetVariables() {
+    this.cellsOfShips = new Array<number>();
+    this.message = '';
+    this.isVertical = false;
+
+    this.isFinishedChoosing = false;
+
+    this.currentShip = new Ship(new Array<number>());
+
+    this.shipsLengthList = new Array<number>();
+    // ships: Array<Ship>;//= new Array<Ship>();
+
+    this.currentPotentialShip = new PotentialShipComponent();
+    this.currentShipNumberOfCells = 0;
+  }
+
   initShipsLengthList() {
+    //todo: get from config
     this.shipsLengthList = [2, 3, 3, 4, 5]
   }
 
@@ -134,7 +170,16 @@ export class ChooseLocationsComponent implements OnInit {
       this.setSelectedShip(numberOfCells);
     }
     else {
-      this.continueToNextStep();
+
+      this.isFinishedChoosing = true;
+
+      console.log('player 1 ships');
+      console.table(this.gameService.player1.ships);
+
+      console.log('player 2 ships');
+      console.table(this.gameService.player2.ships);
+
+      // this.continueToNextStep();
     }
   }
 
@@ -149,6 +194,8 @@ export class ChooseLocationsComponent implements OnInit {
     else {
       this.player = this.gameService.player2;
     }
+
+    this.player.ships = new Array<Ship>();
   }
 
   setPlayerShipsByService(): void {
@@ -156,21 +203,20 @@ export class ChooseLocationsComponent implements OnInit {
   }
 
 
-  finishChoose(): void {
-//if first then
+
+  private continueToNextStep() {
+
+    console.log('next step');
+
+    //if first then
     this.router.navigate(['choose-location/2']);
     // else
     // this.router.navigate(['start-game']);
-  }
-
-  private continueToNextStep() {
-    // this.updateService();
-
-    console.log('next step');
 
     //display button for next step
     //prevent update screen
     //todo: cont here
+
 
   }
 

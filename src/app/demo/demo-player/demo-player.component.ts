@@ -18,7 +18,6 @@ export class DemoPlayerComponent implements OnInit {
     this.initDemoShips();
   }
 
-
   initDemoShips() {
 
     let shipToAdd: ShipToLocate;
@@ -41,9 +40,6 @@ export class DemoPlayerComponent implements OnInit {
 
   addShipToList(shipToLocate: ShipToLocate) {
     let shipToAdd: Ship = new Ship(shipToLocate.locations);
-
-    // this.ships = [...this.ships, shipToAdd];
-
 
     shipToLocate.locations.forEach((id)=>this.cellsOfShips.push(id));
   }

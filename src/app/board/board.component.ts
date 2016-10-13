@@ -10,6 +10,7 @@ import { Ship } from "../shared/ship";
 export class BoardComponent implements OnInit {
 
   @Input() ships: Array<Ship>;
+  @Input() isDisableChanges: boolean;
 
 
   @Input() cellsOfShips: Array<number>;
@@ -29,6 +30,10 @@ export class BoardComponent implements OnInit {
 
   clickCell(id: number): void {
     console.log('board - clickCell : ', id);
+
+    if (this.isDisableChanges) {
+      return;
+    }
 
     this.onCellClicked.emit(id);
   }

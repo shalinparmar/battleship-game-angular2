@@ -1,10 +1,11 @@
- <div id="board">
+<div id="board">
   <table border="1">
 
     <tr *ngFor="let row of rowsCollection">
       <app-cell *ngFor="let cell of cellsCollection"
                 [id]="row+cell"
-                [ships] = "ships"
+                [ships]="ships"
+                [isDisableChanges]="isDisableChanges"
                 (onCellClicked)="clickCell($event)"
                 [isContainBattleship]="isContainShip(row+cell)">
       </app-cell>
