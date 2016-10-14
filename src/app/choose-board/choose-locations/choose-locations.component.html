@@ -9,8 +9,12 @@
   <app-board
     [ships]="ships"
     [cellsOfShips]="cellsOfShips"
+    [cellsOfShipsSimulation]="cellsOfShipsSimulation"
     [isDisableChanges]="isFinishedChoosing"
-    (onCellClicked)="clickCell($event)"></app-board>
+    (onCellClicked)="clickCell($event)"
+    (onCellMouseOver)="mouseOverCell($event)"
+    (onCellMouseOut)="mouseOutCell($event)">
+  </app-board>
 </div>
 
 <div class="col-lg-4" [hidden]="isFinishedChoosing">

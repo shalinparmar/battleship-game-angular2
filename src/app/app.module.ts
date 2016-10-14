@@ -18,6 +18,8 @@ import { PotentialShipComponent } from './choose-board/potential-ship/potential-
 import { PotentialCellComponent } from './choose-board/potential-cell/potential-cell.component';
 import { SetPlayersComponent } from './set-players/set-players.component';
 import { DemoPlayerComponent } from './demo/demo-player/demo-player.component';
+import { PlayGameComponent } from './play-game/play-game/play-game.component';
+import { StartGameComponent } from './play-game/start-game/start-game.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { DemoPlayerComponent } from './demo/demo-player/demo-player.component';
     PotentialShipComponent,
     PotentialCellComponent,
     SetPlayersComponent,
-    DemoPlayerComponent
+    DemoPlayerComponent,
+    PlayGameComponent,
+    StartGameComponent,
   ],
   imports: [
     BrowserModule,

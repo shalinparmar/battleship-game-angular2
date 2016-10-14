@@ -12,8 +12,9 @@ import { ValidationResult } from "../../shared/validation-result";
   templateUrl: './choose-locations.component.html',
   styleUrls: ['./choose-locations.component.css']
 })
-export class ChooseLocationsComponent implements OnInit {
+export class ChooseLocationsComponent implements OnInit  {
   cellsOfShips: Array<number> = new Array<number>();
+  cellsOfShipsSimulation: Array<number> = new Array<number>();
 
   player: Player;
   isFirstPlayer: boolean;
@@ -40,14 +41,7 @@ export class ChooseLocationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.setPlayerByRouteParams();
-    //
-    // this.setPlayerInfo();
-    //
-    // this.setPlayerShipsByService();
-    //
-    // this.initDemoShips();
-    //
-    // this.getNextShip();
+
   }
 
   initDemoShips() {
@@ -76,6 +70,15 @@ export class ChooseLocationsComponent implements OnInit {
     this.player.ships = [...this.player.ships, shipToAdd];
 
     shipToLocate.locations.forEach((id)=>this.cellsOfShips.push(id));
+  }
+
+  private addShipToSimulationList(shipToLocate: ShipToLocate) {
+    shipToLocate.locations.forEach((id)=>this.cellsOfShipsSimulation.push(id));
+    console.log(this.cellsOfShipsSimulation);
+  }
+
+  private clearSimulationList() {
+     this.cellsOfShipsSimulation = new Array<number>();
   }
 
   private setPlayerByRouteParams() {
@@ -163,6 +166,26 @@ export class ChooseLocationsComponent implements OnInit {
     }
   }
 
+
+  mouseOverCell(id) {
+    console.log('mouseOverCell on ', id);
+
+    let shipToLocate: ShipToLocate =
+      new ShipToLocate(this.isVertical, this.currentShipNumberOfCells, id);
+
+    let validationResult: ValidationResult = this.isValidLocationForShip(shipToLocate);
+
+    if (validationResult.isValid) {
+      this.addShipToSimulationList(shipToLocate);
+    }
+  }
+
+  mouseOutCell(id) {
+    console.log('mouseOutCell on ', id);
+
+     this.clearSimulationList();
+  }
+
   getNextShip(): void {
     let numberOfCells: number = this.shipsLengthList.shift();
 
@@ -203,21 +226,17 @@ export class ChooseLocationsComponent implements OnInit {
   }
 
 
-
   private continueToNextStep() {
 
     console.log('next step');
 
-    //if first then
-    this.router.navigate(['choose-location/2']);
-    // else
-    // this.router.navigate(['start-game']);
-
-    //display button for next step
-    //prevent update screen
-    //todo: cont here
-
-
+    if (this.isFirstPlayer) {
+      //if first then
+      this.router.navigate(['choose-location/2']);
+    }
+    else {
+      this.router.navigate(['start-game']);
+    }
   }
 
   private isValidLocationForShip(shipToLocate: ShipToLocate): ValidationResult {
@@ -232,5 +251,7 @@ export class ChooseLocationsComponent implements OnInit {
   }
 
 
-}
+  //todo: use bootstrap local, support no network
 
+
+}

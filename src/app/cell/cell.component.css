@@ -2,6 +2,10 @@
   background-color: green;
 }
 
+.contains-ship-simulation {
+  background-color: lightgreen;
+}
+
 td {
   width: 55px;
   height: 55px;

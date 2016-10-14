@@ -7,7 +7,14 @@ import { Ship } from "../shared/ship";
   template: `
 
     <td [ngClass]="getCellClass()"  >
-      <span [ngClass]="getCircleClass()" (click)="clickCell()">{{id}}</span>      
+      <span 
+        [ngClass]="getCircleClass()" 
+        (click)="clickCell()"
+        (mouseover)="mouseOverCell()"
+        (mouseout)="mouseOutCell()"
+        >{{id}}</span>
+        
+              
      </td>
   `,
   styleUrls: ['./cell.component.css'],
@@ -16,10 +23,14 @@ export class CellComponent implements OnInit {
 
   @Input() id: number;
   @Input() ships: Array<Ship>;
-  @Input() isContainBattleship: boolean;
+  @Input() isContainShip: boolean;
+  @Input() isContainShipSimulation: boolean;
+
   @Input() isDisableChanges: boolean;
 
   @Output() private onCellClicked: EventEmitter<number> = new EventEmitter<number>();
+  @Output() private onCellMouseOver: EventEmitter<number> = new EventEmitter<number>();
+  @Output() private onCellMouseOut: EventEmitter<number> = new EventEmitter<number>();
 
   isClickable: boolean;
   isExposed: boolean;
@@ -34,7 +45,8 @@ export class CellComponent implements OnInit {
 
   getCellClass(): any {
     return {
-      'contains-ship': this.isContainBattleship
+      'contains-ship': this.isContainShip,
+      'contains-ship-simulation': this.isContainShipSimulation && !this.isContainShip,
     };
   }
 
@@ -54,5 +66,26 @@ export class CellComponent implements OnInit {
 
     this.onCellClicked.emit(this.id);
   }
+
+  mouseOverCell() {
+    console.log('mouseOverCell');
+
+    if (this.isDisableChanges) {
+      return;
+    }
+
+    this.onCellMouseOver.emit(this.id);
+  }
+
+  mouseOutCell() {
+    console.log('mouseOutCell');
+
+    if (this.isDisableChanges) {
+      return;
+    }
+
+    this.onCellMouseOut.emit(this.id);
+  }
+
 
 }

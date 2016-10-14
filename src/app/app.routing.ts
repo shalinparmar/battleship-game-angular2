@@ -1,3 +1,4 @@
+///<reference path="play-game/start-game/start-game.component.ts"/>
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from "@angular/core";
 
@@ -8,6 +9,9 @@ import { DemoPlayerComponent } from "./demo/demo-player/demo-player.component";
 import { ChooseLocationsComponent } from "./choose-board/choose-locations/choose-locations.component";
 import { DemoBoardComponent } from "./demo/demo-board/demo-board.component";
 import { SetPlayersComponent } from "./set-players/set-players.component";
+import { StartGameComponent } from "./play-game/start-game/start-game.component";
+import { PlayGameComponent } from "./play-game/play-game/play-game.component";
+
 
 const appRoutes: Routes = [
   {
@@ -20,7 +24,9 @@ const appRoutes: Routes = [
   { path: 'set-players', component: SetPlayersComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'choose-location/:id', component: ChooseLocationsComponent },
-   { path: 'demo-player', component: DemoPlayerComponent },
+  { path: 'demo-player', component: DemoPlayerComponent },
+  { path: 'start-game', component: StartGameComponent },
+  { path: 'play-game', component: PlayGameComponent },
 
 
   { path: '**', component: PageNotFoundComponent }
