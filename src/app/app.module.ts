@@ -20,6 +20,7 @@ import { SetPlayersComponent } from './set-players/set-players.component';
 import { DemoPlayerComponent } from './demo/demo-player/demo-player.component';
 import { PlayGameComponent } from './play-game/play-game/play-game.component';
 import { StartGameComponent } from './play-game/start-game/start-game.component';
+import { GameBoardComponent } from './play-game/game-board/game-board.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { StartGameComponent } from './play-game/start-game/start-game.component'
     DemoPlayerComponent,
     PlayGameComponent,
     StartGameComponent,
+    GameBoardComponent,
   ],
   imports: [
     BrowserModule,

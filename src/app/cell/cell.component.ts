@@ -68,7 +68,7 @@ export class CellComponent implements OnInit {
   }
 
   mouseOverCell() {
-    console.log('mouseOverCell');
+    // console.log('mouseOverCell');
 
     if (this.isDisableChanges) {
       return;
@@ -78,7 +78,7 @@ export class CellComponent implements OnInit {
   }
 
   mouseOutCell() {
-    console.log('mouseOutCell');
+    // console.log('mouseOutCell');
 
     if (this.isDisableChanges) {
       return;

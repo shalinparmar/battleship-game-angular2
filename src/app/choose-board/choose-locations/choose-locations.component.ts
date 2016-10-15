@@ -12,7 +12,7 @@ import { ValidationResult } from "../../shared/validation-result";
   templateUrl: './choose-locations.component.html',
   styleUrls: ['./choose-locations.component.css']
 })
-export class ChooseLocationsComponent implements OnInit  {
+export class ChooseLocationsComponent implements OnInit {
   cellsOfShips: Array<number> = new Array<number>();
   cellsOfShipsSimulation: Array<number> = new Array<number>();
 
@@ -74,11 +74,10 @@ export class ChooseLocationsComponent implements OnInit  {
 
   private addShipToSimulationList(shipToLocate: ShipToLocate) {
     shipToLocate.locations.forEach((id)=>this.cellsOfShipsSimulation.push(id));
-    console.log(this.cellsOfShipsSimulation);
   }
 
   private clearSimulationList() {
-     this.cellsOfShipsSimulation = new Array<number>();
+    this.cellsOfShipsSimulation = new Array<number>();
   }
 
   private setPlayerByRouteParams() {
@@ -102,7 +101,7 @@ export class ChooseLocationsComponent implements OnInit  {
 
     this.setPlayerShipsByService();
 
-    this.initDemoShips();
+    // this.initDemoShips();
 
     this.initShipsLengthList();
 
@@ -168,7 +167,7 @@ export class ChooseLocationsComponent implements OnInit  {
 
 
   mouseOverCell(id) {
-    console.log('mouseOverCell on ', id);
+    // console.log('mouseOverCell on ', id);
 
     let shipToLocate: ShipToLocate =
       new ShipToLocate(this.isVertical, this.currentShipNumberOfCells, id);
@@ -181,9 +180,9 @@ export class ChooseLocationsComponent implements OnInit  {
   }
 
   mouseOutCell(id) {
-    console.log('mouseOutCell on ', id);
+    // console.log('mouseOutCell on ', id);
 
-     this.clearSimulationList();
+    this.clearSimulationList();
   }
 
   getNextShip(): void {
@@ -250,8 +249,7 @@ export class ChooseLocationsComponent implements OnInit  {
     this.message = '';
   }
 
-
-  //todo: use bootstrap local, support no network
-
+  //todo: validation
+  //todo: game
 
 }
