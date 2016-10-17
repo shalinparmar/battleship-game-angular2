@@ -11,15 +11,12 @@ export class BoardComponent implements OnInit {
 
   @Input() ships: Array<Ship>;
   @Input() isDisableChanges: boolean;
-
-
   @Input() cellsOfShips: Array<number>;
   @Input() cellsOfShipsSimulation: Array<number>;
 
   @Output() private onCellClicked: EventEmitter<number> = new EventEmitter<number>();
   @Output() private onCellMouseOver: EventEmitter<number> = new EventEmitter<number>();
   @Output() private onCellMouseOut: EventEmitter<number> = new EventEmitter<number>();
-
 
   private rowsCollection: Array<number> = [10, 20, 30, 40, 50, 60, 70, 80];
   private cellsCollection: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -65,6 +62,7 @@ export class BoardComponent implements OnInit {
   isContainShip(id: number): boolean {
     return this.cellsOfShips.indexOf(id) > -1;
   }
+
 
   isContainShipSimulation(id: number): boolean {
     return this.cellsOfShipsSimulation.indexOf(id) > -1;

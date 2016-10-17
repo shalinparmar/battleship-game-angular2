@@ -10,6 +10,8 @@ export class GameBoardComponent implements OnInit {
 
   @Input() player: Player;
 
+  cellsOfShipsSimulationEmptyArray: Array<number> = new Array<number>();
+
   constructor() {
   }
 

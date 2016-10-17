@@ -11,6 +11,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { PageNotFoundComponent } from "./page-not-found.component";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GameService } from "./shared/game.service";
+import { DemoService } from "./shared/demo.service";
 import { NotEqualValidator } from "./shared/not-equal-validator.directive";
 import { ChooseLocationsComponent } from './choose-board/choose-locations/choose-locations.component';
 import { DemoBoardComponent } from './demo/demo-board/demo-board.component';
@@ -38,7 +39,7 @@ import { GameBoardComponent } from './play-game/game-board/game-board.component'
     DemoPlayerComponent,
     PlayGameComponent,
     StartGameComponent,
-    GameBoardComponent,
+    GameBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +51,7 @@ import { GameBoardComponent } from './play-game/game-board/game-board.component'
   providers: [
     appRoutingProviders,
     GameService,
+    DemoService
   ],
   bootstrap: [AppComponent]
 })

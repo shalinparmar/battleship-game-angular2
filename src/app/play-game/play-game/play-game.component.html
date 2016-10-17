@@ -33,3 +33,18 @@
   <!--[isDisableChanges]="isFinishedChoosing"-->
   <!--(onCellClicked)="clickCell($event)"></app-board>-->
 </div>
+
+<hr/>
+
+
+
+<div class="col-lg-6">
+  <app-board
+    isDisableChanges="true"
+    [ships]="player1.ships"
+    [cellsOfShips]="player1.cellsOfShips"
+    cellsOfShipsSimulation="cellsOfShipsSimulationEmptyArray"
+  >
+
+  </app-board>
+</div>
