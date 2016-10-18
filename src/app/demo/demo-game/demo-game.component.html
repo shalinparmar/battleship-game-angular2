@@ -1,0 +1,50 @@
+<p>
+  play-game DEMO !
+</p>
+
+<!--player 1-->
+
+<div class="col-lg-6">
+  player 1
+  <app-game-board
+    [player]="player1"></app-game-board>
+  <!--is your turn-->
+  <!---->
+  <!--here is board-->
+
+  <!--{{player.name}}-->
+  <!--<app-board-->
+  <!--[ships]="ships"-->
+  <!--[cellsOfShips]="cellsOfShips"-->
+  <!--[isDisableChanges]="isFinishedChoosing"-->
+  <!--(onCellClicked)="clickCell($event)"></app-board>-->
+</div>
+
+<!--player 2-->
+<div class="col-lg-6">
+
+  player 2
+  <app-game-board
+    [player]="player2"></app-game-board>
+  <!--{{player.name}}-->
+  <!--<app-board-->
+  <!--[ships]="ships"-->
+  <!--[cellsOfShips]="cellsOfShips"-->
+  <!--[isDisableChanges]="isFinishedChoosing"-->
+  <!--(onCellClicked)="clickCell($event)"></app-board>-->
+</div>
+
+<hr/>
+
+
+
+<div class="col-lg-6">
+  <app-board
+    isDisableChanges="true"
+    [ships]="player1.ships"
+    [cellsOfShips]="player1.cellsOfShips"
+    cellsOfShipsSimulation="cellsOfShipsSimulationEmptyArray"
+  >
+
+  </app-board>
+</div>

@@ -11,6 +11,7 @@ import { DemoBoardComponent } from "./demo/demo-board/demo-board.component";
 import { SetPlayersComponent } from "./set-players/set-players.component";
 import { StartGameComponent } from "./play-game/start-game/start-game.component";
 import { PlayGameComponent } from "./play-game/play-game/play-game.component";
+import { DemoGameComponent } from "./demo/demo-game/demo-game.component";
 
 
 const appRoutes: Routes = [
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'demo-player', component: DemoPlayerComponent },
   { path: 'start-game', component: StartGameComponent },
   { path: 'play-game', component: PlayGameComponent },
+  { path: 'play-game-demo', component: DemoGameComponent },
 
 
   { path: '**', component: PageNotFoundComponent }

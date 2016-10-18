@@ -22,6 +22,7 @@ import { DemoPlayerComponent } from './demo/demo-player/demo-player.component';
 import { PlayGameComponent } from './play-game/play-game/play-game.component';
 import { StartGameComponent } from './play-game/start-game/start-game.component';
 import { GameBoardComponent } from './play-game/game-board/game-board.component';
+import { DemoGameComponent } from './demo/demo-game/demo-game.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { GameBoardComponent } from './play-game/game-board/game-board.component'
     DemoPlayerComponent,
     PlayGameComponent,
     StartGameComponent,
-    GameBoardComponent
+    GameBoardComponent,
+    DemoGameComponent
   ],
   imports: [
     BrowserModule,
