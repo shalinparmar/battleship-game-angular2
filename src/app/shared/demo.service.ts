@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { Ship } from "./ship";
 import { ShipToLocate } from "./ship-to-locate";
 import { Player } from "./player";
-import { GameService } from "./game.service";
 import { DemoBoardInfo } from "./demo-board-info";
 import { DemoGameInfo } from "./demo-game-info";
 
@@ -12,7 +11,7 @@ import { DemoGameInfo } from "./demo-game-info";
 @Injectable()
 export class DemoService {
 
-  constructor(private gameService: GameService) {
+  constructor() {
   }
 
 
@@ -56,15 +55,13 @@ export class DemoService {
     let player1: Player = new Player('שחקן א');
     let player2: Player = new Player('שחקן ב');
 
-    let ships1: Array <Ship> = player1.ships;//  new Array<Ship>();
-    let cellsOfShips1: Array <number> = player1.cellsOfShips;//= new Array<number>();
-
-    let ships2: Array <Ship> = player2.ships;// new Array<Ship>();
-    let cellsOfShips2: Array <number> = player2.cellsOfShips;//=  new Array<number>();
-
+    // let ships1: Array <Ship> = player1.ships;//  new Array<Ship>();
+    // let cellsOfShips1: Array <number> = player1.cellsOfShips;//= new Array<number>();
+    //
+    // let ships2: Array <Ship> = player2.ships;// new Array<Ship>();
+    // let cellsOfShips2: Array <number> = player2.cellsOfShips;//=  new Array<number>();
 
     let shipToAdd: ShipToLocate;
-
 
     //player 1
 
@@ -88,19 +85,19 @@ export class DemoService {
     //player 2
 
 
-    shipToAdd = new ShipToLocate(false, 4, 33);
+    shipToAdd = new ShipToLocate(false, 4, 22);
     this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
 
-    shipToAdd = new ShipToLocate(true, 4, 18);
+    shipToAdd = new ShipToLocate(true, 4, 17);
     this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
 
-    shipToAdd = new ShipToLocate(false, 5, 72);
+    shipToAdd = new ShipToLocate(true, 5, 44);
     this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
 
-    shipToAdd = new ShipToLocate(false, 3, 41);
+    shipToAdd = new ShipToLocate(true, 3, 52);
     this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
 
-    shipToAdd = new ShipToLocate(true, 3, 27);
+    shipToAdd = new ShipToLocate(true, 3, 67);
     this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
 
     let result: DemoGameInfo = new DemoGameInfo(player1, player2);
@@ -108,6 +105,5 @@ export class DemoService {
     return result;
 
   }
-
 
 }

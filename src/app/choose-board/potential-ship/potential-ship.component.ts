@@ -31,7 +31,7 @@ export class PotentialShipComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}): void {
-      this.setCellsCollection();
+    this.setCellsCollection();
   }
 
 }

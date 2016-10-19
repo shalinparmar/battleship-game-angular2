@@ -5,7 +5,7 @@
 <!--player 1-->
 
 <div class="col-lg-6">
-  player 1
+  <!--player 1-->
   <app-game-board
     [player]="player1"></app-game-board>
   <!--is your turn-->
@@ -23,7 +23,7 @@
 <!--player 2-->
 <div class="col-lg-6">
 
-  player 2
+  <!--player 2-->
   <app-game-board
     [player]="player2"></app-game-board>
   <!--{{player.name}}-->
@@ -36,8 +36,6 @@
 
 <hr/>
 
-
-
 <div class="col-lg-6">
   <app-board
     isDisableChanges="true"
@@ -48,3 +46,16 @@
 
   </app-board>
 </div>
+
+
+<div class="col-lg-6">
+  <app-board
+    isDisableChanges="true"
+    [ships]="player2.ships"
+    [cellsOfShips]="player2.cellsOfShips"
+    cellsOfShipsSimulation="cellsOfShipsSimulationEmptyArray"
+  >
+
+  </app-board>
+</div>
+

@@ -1,0 +1,7 @@
+<td [ngClass]="getCellClass()">
+      <span
+        [ngClass]="getCircleClass()"
+        (click)="clickCell()"
+        (mouseover)="mouseOverCell()"
+        (mouseout)="mouseOutCell()">{{id}}</span>
+</td>

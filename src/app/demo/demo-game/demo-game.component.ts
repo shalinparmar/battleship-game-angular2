@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from "../../shared/player";
 import { GameService } from "../../shared/game.service";
-import { Ship } from "../../shared/ship";
-import { ValidationResult } from "../../shared/validation-result";
-import { ShipToLocate } from "../../shared/ship-to-locate";
 import { DemoGameInfo } from "../../shared/demo-game-info";
 import { DemoService } from "../../shared/demo.service";
 import { Router } from "@angular/router";
@@ -41,8 +38,6 @@ export class DemoGameComponent implements OnInit {
     this.player1 = this.gameService.player1;
     this.player2 = this.gameService.player2;
   }
-
-  // start demo functions
 
   private initDemoPlayers() {
     this.gameService.registerPlayers('שחקן א', 'שחקן ב')

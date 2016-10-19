@@ -18,7 +18,6 @@ import { Router } from "@angular/router";
   top: 150px;
 }
 
-
 `]
 })
 export class DashboardComponent implements OnInit {

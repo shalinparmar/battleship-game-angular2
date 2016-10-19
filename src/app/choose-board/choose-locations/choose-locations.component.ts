@@ -23,7 +23,6 @@ export class ChooseLocationsComponent implements OnInit {
 
   isFinishedChoosing: boolean = false;
 
-
   private subscriber: any;
 
   currentShip: Ship = new Ship(new Array<number>());
@@ -196,8 +195,6 @@ export class ChooseLocationsComponent implements OnInit {
 
       console.log('player 2 ships');
       console.table(this.gameService.player2.ships);
-
-      // this.continueToNextStep();
     }
   }
 

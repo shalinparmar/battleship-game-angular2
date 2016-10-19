@@ -4,19 +4,7 @@ import { Ship } from "../shared/ship";
 
 @Component({
   selector: 'app-cell',
-  template: `
-
-    <td [ngClass]="getCellClass()"  >
-      <span 
-        [ngClass]="getCircleClass()" 
-        (click)="clickCell()"
-        (mouseover)="mouseOverCell()"
-        (mouseout)="mouseOutCell()"
-        >{{id}}</span>
-        
-              
-     </td>
-  `,
+  templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.css'],
 })
 export class CellComponent implements OnInit {

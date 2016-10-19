@@ -11,10 +11,8 @@ import { DemoBoardInfo } from "../../shared/demo-board-info";
 })
 export class DemoPlayerComponent implements OnInit {
 
-
   cellsOfShips: Array<number> = new Array<number>();
   ships: Array<Ship>;
-
 
   constructor(private demoService: DemoService) {
   }
@@ -24,7 +22,7 @@ export class DemoPlayerComponent implements OnInit {
   }
 
   initDemoShips() {
-    let demoBoardInfo : DemoBoardInfo = this.demoService.getDemoShipsForDemoBoard();
+    let demoBoardInfo: DemoBoardInfo = this.demoService.getDemoShipsForDemoBoard();
     this.cellsOfShips = demoBoardInfo.cellsOfShips;
     this.ships = demoBoardInfo.ships;
   }
