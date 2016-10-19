@@ -51,58 +51,63 @@ export class DemoService {
   }
 
 
-
   getDemoGameInfo(): DemoGameInfo {
-return null;
-  }
 
+    let player1: Player = new Player('שחקן א');
+    let player2: Player = new Player('שחקן ב');
 
-  /*initDemoShips() {
+    let ships1: Array <Ship> = player1.ships;//  new Array<Ship>();
+    let cellsOfShips1: Array <number> = player1.cellsOfShips;//= new Array<number>();
+
+    let ships2: Array <Ship> = player2.ships;// new Array<Ship>();
+    let cellsOfShips2: Array <number> = player2.cellsOfShips;//=  new Array<number>();
+
 
     let shipToAdd: ShipToLocate;
+
 
     //player 1
 
     shipToAdd = new ShipToLocate(false, 4, 11);
-    this.addShipToList(shipToAdd, this.player1);
+    this.addShipToList(shipToAdd, player1.ships, player1.cellsOfShips);
+
 
     shipToAdd = new ShipToLocate(true, 4, 26);
-    this.addShipToList(shipToAdd, this.player1);
+    this.addShipToList(shipToAdd, player1.ships, player1.cellsOfShips);
 
     shipToAdd = new ShipToLocate(false, 5, 72);
-    this.addShipToList(shipToAdd, this.player1);
+    this.addShipToList(shipToAdd, player1.ships, player1.cellsOfShips);
 
     shipToAdd = new ShipToLocate(false, 3, 41);
-    this.addShipToList(shipToAdd, this.player1);
+    this.addShipToList(shipToAdd, player1.ships, player1.cellsOfShips);
 
     shipToAdd = new ShipToLocate(true, 3, 18);
-    this.addShipToList(shipToAdd, this.player1);
+    this.addShipToList(shipToAdd, player1.ships, player1.cellsOfShips);
+
 
     //player 2
 
 
     shipToAdd = new ShipToLocate(false, 4, 33);
-    this.addShipToList(shipToAdd, this.player1);
+    this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
 
     shipToAdd = new ShipToLocate(true, 4, 18);
-    this.addShipToList(shipToAdd, this.player1);
+    this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
 
     shipToAdd = new ShipToLocate(false, 5, 72);
-    this.addShipToList(shipToAdd, this.player1);
+    this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
 
     shipToAdd = new ShipToLocate(false, 3, 41);
-    this.addShipToList(shipToAdd, this.player1);
+    this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
 
     shipToAdd = new ShipToLocate(true, 3, 27);
-    this.addShipToList(shipToAdd, this.player1);
+    this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
+
+    let result: DemoGameInfo = new DemoGameInfo(player1, player2);
+
+    return result;
 
   }
-*/
-
-
-
-
-
 
 
 }

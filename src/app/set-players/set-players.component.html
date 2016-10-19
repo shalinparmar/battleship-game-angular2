@@ -14,10 +14,12 @@
            minlength="3"
            placeholder="שם המשתתף הראשון">
 
-    <div [hidden]="name1.valid || (name1.pristine && !f.submitted || !name1.errors.required)" class="text-danger bg-danger">
+    <div [hidden]="name1.valid || (name1.pristine && !f.submitted || !name1.errors.required)"
+         class="text-danger bg-danger">
       חובה לבחור שם משתמש.
     </div>
-    <div [hidden]="name1.valid || (name1.pristine && !f.submitted || !name1.errors.minlength)" class="text-danger bg-danger">
+    <div [hidden]="name1.valid || (name1.pristine && !f.submitted || !name1.errors.minlength)"
+         class="text-danger bg-danger">
       שם המשתמש לפחות 3 תווים.
     </div>
     <div [hidden]="name1.valid || (name1.pristine && !f.submitted)" class="text-danger bg-danger">
@@ -35,10 +37,12 @@
            minlength="3"
            placeholder="שם המשתתף השני">
 
-    <div [hidden]="name2.valid || (name2.pristine && !f.submitted || !name2.errors.required)" class="text-danger bg-danger">
+    <div [hidden]="name2.valid || (name2.pristine && !f.submitted || !name2.errors.required)"
+         class="text-danger bg-danger">
       חובה לבחור שם משתמש.
     </div>
-    <div [hidden]="name2.valid || (name2.pristine && !f.submitted || !name2.errors.minlength)" class="text-danger bg-danger">
+    <div [hidden]="name2.valid || (name2.pristine && !f.submitted || !name2.errors.minlength)"
+         class="text-danger bg-danger">
       שם המשתמש לפחות 3 תווים.
     </div>
     <div [hidden]="name2.valid || (name2.pristine && !f.submitted)" class="text-danger bg-danger">

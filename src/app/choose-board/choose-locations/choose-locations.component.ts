@@ -13,7 +13,7 @@ import { ValidationResult } from "../../shared/validation-result";
   styleUrls: ['./choose-locations.component.css']
 })
 export class ChooseLocationsComponent implements OnInit {
-  cellsOfShips: Array<number> ;//= new Array<number>();
+  cellsOfShips: Array<number>;//= new Array<number>();
   cellsOfShipsSimulation: Array<number> = new Array<number>();
 
   player: Player;
@@ -101,15 +101,12 @@ export class ChooseLocationsComponent implements OnInit {
 
     this.setPlayerShipsByService();
 
-    // this.initDemoShips();
-
     this.initShipsLengthList();
 
     this.getNextShip();
   }
 
   private resetVariables() {
-    // this.cellsOfShips = new Array<number>();
     this.message = '';
     this.isVertical = false;
 
@@ -118,7 +115,6 @@ export class ChooseLocationsComponent implements OnInit {
     this.currentShip = new Ship(new Array<number>());
 
     this.shipsLengthList = new Array<number>();
-    // ships: Array<Ship>;//= new Array<Ship>();
 
     this.currentPotentialShip = new PotentialShipComponent();
     this.currentShipNumberOfCells = 0;
@@ -222,7 +218,7 @@ export class ChooseLocationsComponent implements OnInit {
 
   setPlayerShipsByService(): void {
     this.ships = this.player.ships;
-    this.cellsOfShips= this.player.cellsOfShips;
+    this.cellsOfShips = this.player.cellsOfShips;
   }
 
 

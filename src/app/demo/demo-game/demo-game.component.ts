@@ -4,8 +4,9 @@ import { GameService } from "../../shared/game.service";
 import { Ship } from "../../shared/ship";
 import { ValidationResult } from "../../shared/validation-result";
 import { ShipToLocate } from "../../shared/ship-to-locate";
-
-
+import { DemoGameInfo } from "../../shared/demo-game-info";
+import { DemoService } from "../../shared/demo.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-demo-game',
@@ -17,141 +18,48 @@ export class DemoGameComponent implements OnInit {
 
   player1: Player;
   player2: Player;
-  message: string = '';
 
+  constructor(private gameService: GameService,
+              private demoService: DemoService,
+              private router: Router) {
+  }
 
-  constructor(private gameService : GameService) { }
 
   ngOnInit() {
-
-    this.initDemoStatus();
+    this.initDemoPlayers();
 
     this.setPlayersInfo();
 
+    this.initDemoStatus();
   }
-
-
-
 
   private initDemoStatus() {
-
-    this.initDemoPlayers();
-
     this.initDemoShips();
-
   }
 
-
-
-
-
-
-
-
+  setPlayersInfo(): void {
+    this.player1 = this.gameService.player1;
+    this.player2 = this.gameService.player2;
+  }
 
   // start demo functions
 
-
   private initDemoPlayers() {
     this.gameService.registerPlayers('שחקן א', 'שחקן ב')
-
-    this.player1 = this.gameService.player1;
-    this.player2 = this.gameService.player2;
-
-    // public ships: Array<Ship> = new Array <Ship>();
   }
-
 
   initDemoShips() {
 
-    let shipToAdd: ShipToLocate;
+    let demoGameInfo: DemoGameInfo = this.demoService.getDemoGameInfo();
 
-    //player 1
+    this.gameService.player1 = demoGameInfo.player1;
+    this.gameService.player2 = demoGameInfo.player2;
 
-    shipToAdd = new ShipToLocate(false, 4, 11);
-    this.addShipToList(shipToAdd, this.player1);
+    console.log('check player info');
+    console.log('ships ', this.gameService.player1.ships);
+    console.log('cellsOfShips ', this.gameService.player1.cellsOfShips);
 
-    shipToAdd = new ShipToLocate(true, 4, 26);
-    this.addShipToList(shipToAdd, this.player1);
-
-    shipToAdd = new ShipToLocate(false, 5, 72);
-    this.addShipToList(shipToAdd, this.player1);
-
-    shipToAdd = new ShipToLocate(false, 3, 41);
-    this.addShipToList(shipToAdd, this.player1);
-
-    shipToAdd = new ShipToLocate(true, 3, 18);
-    this.addShipToList(shipToAdd, this.player1);
-
-    //player 2
-
-
-    shipToAdd = new ShipToLocate(false, 4, 33);
-    this.addShipToList(shipToAdd, this.player1);
-
-    shipToAdd = new ShipToLocate(true, 4, 18);
-    this.addShipToList(shipToAdd, this.player1);
-
-    shipToAdd = new ShipToLocate(false, 5, 72);
-    this.addShipToList(shipToAdd, this.player1);
-
-    shipToAdd = new ShipToLocate(false, 3, 41);
-    this.addShipToList(shipToAdd, this.player1);
-
-    shipToAdd = new ShipToLocate(true, 3, 27);
-    this.addShipToList(shipToAdd, this.player1);
-
+    this.router.navigate(['play-game']);
   }
-
-  addShipToList(shipToLocate: ShipToLocate, player: Player) {
-    let shipToAdd: Ship = new Ship(shipToLocate.locations);
-
-    player.ships = [...player.ships, shipToAdd];
-
-    //shipToLocate.locations.forEach((id)=>this.cellsOfShips.push(id));
-  }
-
-
-  // end demo functions
-
-  clickCell(id) {
-
-    this.resetMessage();
-
-    console.log('you clicked on ', id);
-
-    // let shipToLocate: ShipToLocate =
-    //   new ShipToLocate(this.isVertical, this.currentShipNumberOfCells, id);
-    //
-    // let validationResult: ValidationResult = this.isValidLocationForShip(shipToLocate);
-    //
-    // if (validationResult.isValid) {
-    //   this.addShipToList(shipToLocate);
-    //
-    //   this.getNextShip();
-    // }
-    // else {
-    //   this.displayValidationMessage(validationResult.message);
-    // }
-  }
-
-
-  setPlayersInfo(): void {
-
-    this.player1 = this.gameService.player1;
-    this.player2 = this.gameService.player2;
-  }
-
-
-  private resetMessage() {
-    this.message = '';
-  }
-
-
 
 }
-
-
-
-
-

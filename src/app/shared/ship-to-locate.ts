@@ -16,6 +16,7 @@ export class ShipToLocate extends ShipBase {
     this.firstCell = firstCell;
 
     this.setShipLocations();
+
     console.log('locations ', this.locations);
 
   }

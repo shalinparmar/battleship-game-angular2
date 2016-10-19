@@ -12,6 +12,12 @@ export class GameService {
     this.player2 = new Player();
   }
 
+  resetPlayers() {
+    this.player1 = new Player();
+    this.player2 = new Player();
+  }
+
+
   registerPlayers(name1: string, name2: string): void {
     // debugger;
     this.player1.name = name1;
