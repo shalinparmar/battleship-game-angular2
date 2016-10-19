@@ -10,3 +10,7 @@ div#board {
 tr {
   height: 60px;
 }
+
+.my-turn{
+  border: double blue medium;
+}

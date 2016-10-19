@@ -1,19 +1,19 @@
-<p>
-  play-game works!
-</p>
+<h3 class="aaa">
+  <span> התור של </span>
+  {{currentPlayer.name}}
+</h3>
+
 
 <!--player 1-->
 
 <div class="col-lg-6">
   <!--player 1-->
   <app-game-board
-    [player]="player1"></app-game-board>
-  <!--is your turn-->
-  <!---->
-  <!--here is board-->
+    [isMyTurn]="isTurnOfFirstPlayer"
+    [isGameOver]="isGameOver"
+    [isDisableChanges]="isGameOver || !isTurnOfFirstPlayer"
 
-  <!--{{player.name}}-->
-  <!--<app-board-->
+    [player]="player1"></app-game-board>
   <!--[ships]="ships"-->
   <!--[cellsOfShips]="cellsOfShips"-->
   <!--[isDisableChanges]="isFinishedChoosing"-->
@@ -25,6 +25,9 @@
 
   <!--player 2-->
   <app-game-board
+    [isMyTurn]="!isTurnOfFirstPlayer"
+    [isGameOver]="isGameOver"
+    [isDisableChanges]="isGameOver || isTurnOfFirstPlayer"
     [player]="player2"></app-game-board>
   <!--{{player.name}}-->
   <!--<app-board-->

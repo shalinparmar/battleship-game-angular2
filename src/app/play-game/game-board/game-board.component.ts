@@ -20,7 +20,10 @@ export class GameBoardComponent implements OnInit {
   // @Input() ships: Array<Ship>;
   @Input() isDisableChanges: boolean;
   // @Input() cellsOfShips: Array<number>;
-  // @Input() cellsOfShipsSimulation: Array<number>;
+  @Input() isMyTurn: boolean;
+  @Input() isGameOver: boolean;
+
+
 
   @Output() private onCellClicked: EventEmitter<number> = new EventEmitter<number>();
 
@@ -33,6 +36,11 @@ export class GameBoardComponent implements OnInit {
   ngOnInit() {
   }
 
+  getBoardClass(): any {
+    return {
+      'my-turn': this.isMyTurn
+    };
+  }
 
   clickCell(id: number): void {
     console.log('board - clickCell : ', id);

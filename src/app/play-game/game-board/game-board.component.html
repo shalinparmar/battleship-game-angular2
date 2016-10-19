@@ -1,15 +1,18 @@
 <div id="board">
   <!--style="background: yellow"-->
   <h3>{{player.name}}</h3>
-  <table border="1">
+  <table border="1" [ngClass]="getBoardClass()">
 
     <tr *ngFor="let row of rowsCollection">
       <app-game-cell *ngFor="let cell of cellsCollection"
                      [id]="row+cell"
-      >
-      <!--[ships]="ships"-->
-      <!--(onCellClicked)="clickCell($event)"-->
-      <!--[isContainShip]="isContainShip(row+cell)">-->
+                     [isDisableChanges]="isDisableChanges"      >
+        <!--[isMyTurn]="isMyTurn"-->
+                     <!--[isGameOver]="isGameOver"-->
+
+        <!--[ships]="ships"-->
+        <!--(onCellClicked)="clickCell($event)"-->
+        <!--[isContainShip]="isContainShip(row+cell)">-->
       </app-game-cell>
     </tr>
 

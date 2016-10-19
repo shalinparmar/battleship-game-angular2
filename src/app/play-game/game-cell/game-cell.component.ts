@@ -14,8 +14,14 @@ export class GameCellComponent implements OnInit {
   @Input() isContainShip: boolean;
 
   @Input() isDisableChanges: boolean;
+  //
+  // @Input() isMyTurn: boolean;
+  // @Input() isGameOver: boolean;
+
 
   @Output() private onCellClicked: EventEmitter<number> = new EventEmitter<number>();
+
+
 
   isClickable: boolean;
   isExposed: boolean;

@@ -17,6 +17,8 @@ export class PlayGameComponent implements OnInit {
   player2: Player;
   message: string = '';
 
+  currentPlayer: Player;
+
   private isGameOver: boolean;
   private isTurnOfFirstPlayer: boolean = true;
 
@@ -25,6 +27,8 @@ export class PlayGameComponent implements OnInit {
 
   ngOnInit() {
     this.setPlayersInfo();
+
+    this.setCurrentPlayer();
   }
 
 
@@ -51,14 +55,16 @@ export class PlayGameComponent implements OnInit {
 
 
   setPlayersInfo(): void {
-
     this.player1 = this.gameService.player1;
     this.player2 = this.gameService.player2;
   }
 
 
+  private setCurrentPlayer() {
+    this.currentPlayer = this.player1;
+  }
+
   private resetMessage() {
     this.message = '';
   }
-
 }
