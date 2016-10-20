@@ -1,3 +1,4 @@
+/*
 export class ShipBase {
   locations: Array<number>;
 
@@ -5,3 +6,4 @@ export class ShipBase {
     this.locations = locations;
   }
 }
+*/

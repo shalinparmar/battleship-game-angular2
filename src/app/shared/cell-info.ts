@@ -1,6 +1,6 @@
 export class CellInfo {
   id: number;
-  // isExposed: boolean;
+  public isExposed: boolean = false;
   isContainShip: boolean;
 
   constructor(id: number, isContainShip: boolean) {

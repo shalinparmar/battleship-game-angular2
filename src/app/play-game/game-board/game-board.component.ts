@@ -3,7 +3,7 @@ import { Input } from "@angular/core/src/metadata/directives";
 import { Player } from "../../shared/player";
 import { PlayerClickCell } from "../../shared/player-click-cell";
 import { CellInfo } from "../../shared/cell-info";
-// import { Player } from "../../shared/player";
+import { Ship } from "../../shared/ship";
 // import { Ship } from "../shared/ship";
 
 
@@ -47,6 +47,10 @@ export class GameBoardComponent implements OnInit {
     let playerClickCell: PlayerClickCell = new PlayerClickCell(this.player, cellInfo);
     console.log('playerClickCell ', playerClickCell);
     this.onCellClicked.emit(playerClickCell);
+
+    if (cellInfo.isContainShip) {
+      this.updateShipWithExposedCell(cellInfo.id);
+    }
   }
 
 
@@ -54,4 +58,34 @@ export class GameBoardComponent implements OnInit {
     return this.player.cellsOfShips.indexOf(id) > -1;
   }
 
+  private updateShipWithExposedCell(id: number) {
+    let selectedShipArray: Array<Ship> =
+      this.player.ships.filter((ship) => ship.locations.indexOf(id) > -1);
+
+    if (selectedShipArray.length == 0) {
+      return;
+    }
+
+    let selectedShip: Ship =
+      selectedShipArray[0];
+
+    let cell: CellInfo =
+      (selectedShip.cells.filter((cellInfo) => cellInfo.id == id))[0];
+
+    cell.isExposed = true;
+
+    this.checkIfShipExposed(selectedShip);
+  }
+
+  private checkIfShipExposed(selectedShip: Ship) {
+    let notExposedCells: Array<CellInfo> =
+      selectedShip.cells.filter((cellInfo) => cellInfo.isExposed == false);
+
+    console.log('notExposedCells ', notExposedCells);
+
+    if (notExposedCells.length == 0) {
+      //todo:
+      alert('finish expose ship');
+    }
+  }
 }

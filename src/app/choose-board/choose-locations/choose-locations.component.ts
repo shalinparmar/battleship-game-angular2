@@ -6,6 +6,7 @@ import { Ship } from "../../shared/ship";
 import { PotentialShipComponent } from "../potential-ship/potential-ship.component";
 import { ShipToLocate } from "../../shared/ship-to-locate";
 import { ValidationResult } from "../../shared/validation-result";
+import { CellInfo } from "../../shared/cell-info";
 
 @Component({
   selector: 'app-choose-locations',
@@ -28,7 +29,7 @@ export class ChooseLocationsComponent implements OnInit {
   currentShip: Ship = new Ship(new Array<number>());
 
   shipsLengthList: Array<number> = new Array<number>();
-  ships: Array<Ship>;//= new Array<Ship>();
+  ships: Array<Ship>;
 
   currentPotentialShip: PotentialShipComponent = new PotentialShipComponent();
   currentShipNumberOfCells: number;
@@ -160,10 +161,7 @@ export class ChooseLocationsComponent implements OnInit {
     }
   }
 
-
   mouseOverCell(id) {
-    // console.log('mouseOverCell on ', id);
-
     let shipToLocate: ShipToLocate =
       new ShipToLocate(this.isVertical, this.currentShipNumberOfCells, id);
 
@@ -175,8 +173,6 @@ export class ChooseLocationsComponent implements OnInit {
   }
 
   mouseOutCell(id) {
-    // console.log('mouseOutCell on ', id);
-
     this.clearSimulationList();
   }
 

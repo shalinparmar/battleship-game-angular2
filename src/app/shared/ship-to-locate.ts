@@ -1,19 +1,21 @@
-import { ShipBase } from "./ship-base";
+// import { ShipBase } from "./ship-base";
 
-export class ShipToLocate extends ShipBase {
+export class ShipToLocate /*extends ShipBase */ {
 
   public isVertical: boolean;
   public size: number;
   public firstCell: number;
+  public locations: Array<number> = new Array<number>();
 
   constructor(isVertical: boolean,
               size: number,
               firstCell: number) {
-    super();
+    // super();
 
     this.isVertical = isVertical;
     this.size = size;
     this.firstCell = firstCell;
+
 
     this.setShipLocations();
 

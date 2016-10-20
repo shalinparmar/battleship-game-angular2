@@ -6,14 +6,13 @@ import { ShipToLocate } from "./ship-to-locate";
 import { Player } from "./player";
 import { DemoBoardInfo } from "./demo-board-info";
 import { DemoGameInfo } from "./demo-game-info";
-
+import { CellInfo } from "./cell-info";
 
 @Injectable()
 export class DemoService {
 
   constructor() {
   }
-
 
   getDemoShipsForDemoBoard(): DemoBoardInfo {
     let ships: Array <Ship> = new Array<Ship>();
@@ -49,17 +48,10 @@ export class DemoService {
     shipToLocate.locations.forEach((id)=>cellsOfShips.push(id));
   }
 
-
   getDemoGameInfo(): DemoGameInfo {
 
     let player1: Player = new Player('שחקן א');
     let player2: Player = new Player('שחקן ב');
-
-    // let ships1: Array <Ship> = player1.ships;//  new Array<Ship>();
-    // let cellsOfShips1: Array <number> = player1.cellsOfShips;//= new Array<number>();
-    //
-    // let ships2: Array <Ship> = player2.ships;// new Array<Ship>();
-    // let cellsOfShips2: Array <number> = player2.cellsOfShips;//=  new Array<number>();
 
     let shipToAdd: ShipToLocate;
 
@@ -67,7 +59,6 @@ export class DemoService {
 
     shipToAdd = new ShipToLocate(false, 4, 11);
     this.addShipToList(shipToAdd, player1.ships, player1.cellsOfShips);
-
 
     shipToAdd = new ShipToLocate(true, 4, 26);
     this.addShipToList(shipToAdd, player1.ships, player1.cellsOfShips);
@@ -83,7 +74,6 @@ export class DemoService {
 
 
     //player 2
-
 
     shipToAdd = new ShipToLocate(false, 4, 22);
     this.addShipToList(shipToAdd, player2.ships, player2.cellsOfShips);
