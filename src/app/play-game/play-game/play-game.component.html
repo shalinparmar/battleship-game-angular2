@@ -12,8 +12,8 @@
     [isMyTurn]="isTurnOfFirstPlayer"
     [isGameOver]="isGameOver"
     [isDisableChanges]="isGameOver || !isTurnOfFirstPlayer"
-
-    [player]="player1"></app-game-board>
+    [player]="player1"
+    (onCellClicked)="clickCell($event)"></app-game-board>
   <!--[ships]="ships"-->
   <!--[cellsOfShips]="cellsOfShips"-->
   <!--[isDisableChanges]="isFinishedChoosing"-->
@@ -28,7 +28,8 @@
     [isMyTurn]="!isTurnOfFirstPlayer"
     [isGameOver]="isGameOver"
     [isDisableChanges]="isGameOver || isTurnOfFirstPlayer"
-    [player]="player2"></app-game-board>
+    [player]="player2"
+    (onCellClicked)="clickCell($event)"></app-game-board>
   <!--{{player.name}}-->
   <!--<app-board-->
   <!--[ships]="ships"-->

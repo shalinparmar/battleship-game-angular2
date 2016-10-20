@@ -24,3 +24,11 @@ td {
 .circle-pointer {
   cursor: pointer;
 }
+
+.exposed-no-ship {
+  background-color: #fff50d;
+}
+
+.exposed-with-ship {
+  background-color: #ff2213;
+}

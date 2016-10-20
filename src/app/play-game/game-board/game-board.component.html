@@ -6,9 +6,11 @@
     <tr *ngFor="let row of rowsCollection">
       <app-game-cell *ngFor="let cell of cellsCollection"
                      [id]="row+cell"
-                     [isDisableChanges]="isDisableChanges"      >
+                     [isDisableChanges]="isDisableChanges"
+                     [isContainShip]="isContainShip(row+cell)"
+                     (onCellClicked)="clickCell($event)">
         <!--[isMyTurn]="isMyTurn"-->
-                     <!--[isGameOver]="isGameOver"-->
+        <!--[isGameOver]="isGameOver"-->
 
         <!--[ships]="ships"-->
         <!--(onCellClicked)="clickCell($event)"-->

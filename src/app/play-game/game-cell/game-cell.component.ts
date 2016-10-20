@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CellInfo } from "../../shared/cell-info";
 // import { Ship } from "../shared/ship";
 
 @Component({
@@ -19,8 +20,7 @@ export class GameCellComponent implements OnInit {
   // @Input() isGameOver: boolean;
 
 
-  @Output() private onCellClicked: EventEmitter<number> = new EventEmitter<number>();
-
+  @Output() private onCellClicked: EventEmitter<CellInfo> = new EventEmitter<CellInfo>();
 
 
   isClickable: boolean;
@@ -35,14 +35,16 @@ export class GameCellComponent implements OnInit {
 
   getCellClass(): any {
     return {
-      'contains-ship': this.isContainShip
+      // 'contains-ship': this.isContainShip,
     };
   }
 
   getCircleClass(): any {
     return {
       'circle': true,
-      'circle-pointer': !this.isDisableChanges
+      'circle-pointer': !this.isDisableChanges && !this.isExposed,
+      'exposed-no-ship': this.isExposed && !this.isContainShip,
+      'exposed-with-ship': this.isExposed && this.isContainShip
     }
   }
 
@@ -50,10 +52,15 @@ export class GameCellComponent implements OnInit {
     console.log('clickCell');
 
     if (this.isDisableChanges) {
+
+      // console.log('click disabled');
       return;
     }
 
-    this.onCellClicked.emit(this.id);
+    let cellInfo: CellInfo = new CellInfo(this.id, this.isContainShip);
+    this.onCellClicked.emit(cellInfo);
+
+    this.isExposed = true;
   }
 
 }
