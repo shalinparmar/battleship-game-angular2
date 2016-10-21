@@ -93,13 +93,15 @@ export class ChooseLocationsComponent implements OnInit {
   }
 
   private initPage() {
-    console.log('init page');
+    // console.log('init page');
 
     this.resetVariables();
 
     this.setPlayerInfo();
 
     this.setPlayerShipsByService();
+
+    this.verifyNotAlreadyChosen();
 
     this.initShipsLengthList();
 
@@ -144,7 +146,7 @@ export class ChooseLocationsComponent implements OnInit {
 
     this.resetMessage();
 
-    console.log('you clicked on ', id);
+    // console.log('you clicked on ', id);
 
     let shipToLocate: ShipToLocate =
       new ShipToLocate(this.isVertical, this.currentShipNumberOfCells, id);
@@ -185,12 +187,13 @@ export class ChooseLocationsComponent implements OnInit {
     else {
 
       this.isFinishedChoosing = true;
-
+/*
       console.log('player 1 ships');
       console.table(this.gameService.player1.ships);
 
       console.log('player 2 ships');
       console.table(this.gameService.player2.ships);
+      */
     }
   }
 
@@ -217,10 +220,9 @@ export class ChooseLocationsComponent implements OnInit {
 
   private continueToNextStep() {
 
-    console.log('next step');
+    // console.log('next step');
 
     if (this.isFirstPlayer) {
-      //if first then
       this.router.navigate(['choose-location/2']);
     }
     else {
@@ -242,4 +244,10 @@ export class ChooseLocationsComponent implements OnInit {
   //todo: validation
   //todo: game
 
+  private verifyNotAlreadyChosen() {
+    if (this.cellsOfShips.length > 0) {
+  //already chosen - prevent use back to see
+      this.continueToNextStep();
+    }
+  }
 }

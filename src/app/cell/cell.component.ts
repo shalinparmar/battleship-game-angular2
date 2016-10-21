@@ -75,5 +75,4 @@ export class CellComponent implements OnInit {
     this.onCellMouseOut.emit(this.id);
   }
 
-
 }

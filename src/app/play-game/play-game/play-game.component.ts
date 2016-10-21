@@ -43,21 +43,6 @@ export class PlayGameComponent implements OnInit {
     if (!playerClickCell.cellInfo.isContainShip) {
       this.switchPlayer();
     }
-
-
-    // let shipToLocate: ShipToLocate =
-    //   new ShipToLocate(this.isVertical, this.currentShipNumberOfCells, id);
-    //
-    // let validationResult: ValidationResult = this.isValidLocationForShip(shipToLocate);
-    //
-    // if (validationResult.isValid) {
-    //   this.addShipToList(shipToLocate);
-    //
-    //   this.getNextShip();
-    // }
-    // else {
-    //   this.displayValidationMessage(validationResult.message);
-    // }
   }
 
 

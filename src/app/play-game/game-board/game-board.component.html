@@ -1,45 +1,17 @@
 <div id="board">
-  <!--style="background: yellow"-->
   <h3>{{player.name}}</h3>
   <table border="1" [ngClass]="getBoardClass()">
 
     <tr *ngFor="let row of rowsCollection">
       <app-game-cell *ngFor="let cell of cellsCollection"
-                     [id]="row+cell"
+                     [cellInfo]="getCellInfo(row+cell)"
                      [isDisableChanges]="isDisableChanges"
-                     [isContainShip]="isContainShip(row+cell)"
                      (onCellClicked)="clickCell($event)">
-        <!--[isMyTurn]="isMyTurn"-->
+
         <!--[isGameOver]="isGameOver"-->
 
-        <!--[ships]="ships"-->
-        <!--(onCellClicked)="clickCell($event)"-->
-        <!--[isContainShip]="isContainShip(row+cell)">-->
       </app-game-cell>
     </tr>
 
   </table>
 </div>
-
-<!--
-
-<div id="board">
-  <table border="1">
-
-    <tr *ngFor="let row of rowsCollection">
-      <app-cell *ngFor="let cell of cellsCollection"
-                [id]="row+cell"
-                [ships]="ships"
-                [isDisableChanges]="isDisableChanges"
-                (onCellClicked)="clickCell($event)"
-                (onCellMouseOver)="mouseOverCell($event)"
-                (onCellMouseOut)="mouseOutCell($event)"
-                [isContainShip]="isContainShip(row+cell)"
-                [isContainShipSimulation]="isContainShipSimulation(row+cell)">
-      </app-cell>
-    </tr>
-
-  </table>
-</div>
-
--->

@@ -31,4 +31,49 @@ td {
 
 .exposed-with-ship {
   background-color: #ff2213;
+  animation: circle-color-changer 1.5s ease 0s;
+}
+
+@keyframes circle-color-changer {
+  0% {
+    background-color: white;
+  }
+
+  20% {
+    background-color: red;
+  }
+  40% {
+    background-color: #ffc8a0;
+  }
+
+  60% {
+    background-color: #b8181f;
+  }
+
+  80% {
+    background-color: #ffc8a0;
+  }
+
+  100% {
+    background-color: red;
+  }
+}
+
+.exposed-ship {
+  background-color: rgba(24, 12, 9, 0.36);
+  animation: cell-color-changer 1.5s ease 0s;
+}
+
+@keyframes cell-color-changer {
+  0% {
+    background-color: white;
+  }
+
+  50% {
+    background-color: black;
+  }
+
+  100% {
+    background-color: white;
+  }
 }

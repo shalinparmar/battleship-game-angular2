@@ -19,7 +19,7 @@ export class ShipToLocate /*extends ShipBase */ {
 
     this.setShipLocations();
 
-    console.log('locations ', this.locations);
+    // console.log('locations ', this.locations);
 
   }
 

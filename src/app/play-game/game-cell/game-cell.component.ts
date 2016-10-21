@@ -10,11 +10,12 @@ import { CellInfo } from "../../shared/cell-info";
 export class GameCellComponent implements OnInit {
 
 
-  @Input() id: number;
+  @Input() cellInfo: CellInfo;
   // @Input() ships: Array<Ship>;
-  @Input() isContainShip: boolean;
+  // @Input() isContainShip: boolean;
 
   @Input() isDisableChanges: boolean;
+  // @Input() isShipExposed: boolean;
   //
   // @Input() isMyTurn: boolean;
   // @Input() isGameOver: boolean;
@@ -34,8 +35,9 @@ export class GameCellComponent implements OnInit {
   }
 
   getCellClass(): any {
+    // console.log('getCellClass');
     return {
-      // 'contains-ship': this.isContainShip,
+      'exposed-ship': this.cellInfo.isShipExposed
     };
   }
 
@@ -43,13 +45,15 @@ export class GameCellComponent implements OnInit {
     return {
       'circle': true,
       'circle-pointer': !this.isDisableChanges && !this.isExposed,
-      'exposed-no-ship': this.isExposed && !this.isContainShip,
-      'exposed-with-ship': this.isExposed && this.isContainShip
+      'exposed-no-ship': this.isExposed && !this.cellInfo.isContainShip,
+      'exposed-with-ship': this.isExposed && this.cellInfo.isContainShip
     }
   }
 
   clickCell() {
-    console.log('clickCell');
+    // console.log('clickCell');
+
+    // debugger;
 
     if (this.isDisableChanges) {
 
@@ -57,10 +61,11 @@ export class GameCellComponent implements OnInit {
       return;
     }
 
-    let cellInfo: CellInfo = new CellInfo(this.id, this.isContainShip);
-    this.onCellClicked.emit(cellInfo);
+    // let cellInfo: CellInfo = new CellInfo(this.cellInfo.id, this.cellInfo.isContainShip);
+    this.onCellClicked.emit(this.cellInfo);
 
     this.isExposed = true;
+
   }
 
 }

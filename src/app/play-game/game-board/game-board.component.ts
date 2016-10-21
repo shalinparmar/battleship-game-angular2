@@ -4,8 +4,6 @@ import { Player } from "../../shared/player";
 import { PlayerClickCell } from "../../shared/player-click-cell";
 import { CellInfo } from "../../shared/cell-info";
 import { Ship } from "../../shared/ship";
-// import { Ship } from "../shared/ship";
-
 
 @Component({
   selector: 'app-game-board',
@@ -22,13 +20,20 @@ export class GameBoardComponent implements OnInit {
 
   @Output() private onCellClicked: EventEmitter<PlayerClickCell > = new EventEmitter<PlayerClickCell>();
 
+
+  //remove
   private rowsCollection: Array<number> = [10, 20, 30, 40, 50, 60, 70, 80];
   private cellsCollection: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8];
+
+
+  private cells: Array<CellInfo>;
+
 
   constructor() {
   }
 
   ngOnInit() {
+    this.initCells();
   }
 
   getBoardClass(): any {
@@ -37,15 +42,18 @@ export class GameBoardComponent implements OnInit {
     };
   }
 
+
   clickCell(cellInfo: CellInfo): void {
-    console.log('game-board - clickCell : ', cellInfo.id);
+    // console.log('game-board - clickCell : ', cellInfo.id);
 
     if (this.isDisableChanges) {
       return;
     }
 
     let playerClickCell: PlayerClickCell = new PlayerClickCell(this.player, cellInfo);
-    console.log('playerClickCell ', playerClickCell);
+
+    // console.log('playerClickCell ', playerClickCell);
+
     this.onCellClicked.emit(playerClickCell);
 
     if (cellInfo.isContainShip) {
@@ -56,6 +64,11 @@ export class GameBoardComponent implements OnInit {
 
   isContainShip(id: number): boolean {
     return this.player.cellsOfShips.indexOf(id) > -1;
+  }
+
+
+  isShipExposed(id: number): boolean {
+    return true;
   }
 
   private updateShipWithExposedCell(id: number) {
@@ -81,11 +94,52 @@ export class GameBoardComponent implements OnInit {
     let notExposedCells: Array<CellInfo> =
       selectedShip.cells.filter((cellInfo) => cellInfo.isExposed == false);
 
-    console.log('notExposedCells ', notExposedCells);
+    // console.log('notExposedCells ', notExposedCells);
 
     if (notExposedCells.length == 0) {
       //todo:
-      alert('finish expose ship');
+      // alert('finish expose ship');
+      this.showExposedShip(selectedShip);
     }
+  }
+
+  private showExposedShip(selectedShip: Ship) {
+    //selectedShip.cells.forEach((cell: CellInfo)=>cell.isShipExposed = true);
+    selectedShip.cells.forEach((cell: CellInfo)=>this.setBoardCellIsShipExposed(cell.id));
+
+    // console.log('selectedShip.cells ', selectedShip.cells);
+  }
+
+
+  getCellInfo(id) {
+    return (this.cells.filter((cell)=>cell.id == id))[0];
+  }
+
+  createCellInfo(id) {
+    let cellInfo: CellInfo = new CellInfo(id, this.isContainShip(id));
+
+    this.cells.push(cellInfo);
+  }
+
+  private initCells() {
+
+    let rowsCollection: Array<number> = [10, 20, 30, 40, 50, 60, 70, 80];
+    let cellsCollection: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8];
+    let id: number;
+
+    this.cells = new Array<CellInfo>();
+
+    for (let row of rowsCollection) {
+      for (let cell of cellsCollection) {
+        id = row + cell;
+        this.createCellInfo(row + cell);
+      }
+
+    }
+  }
+
+  private setBoardCellIsShipExposed(id: number) {
+    let cell = (this.cells.filter((cell)=>cell.id == id))[0];
+    cell.isShipExposed = true;
   }
 }

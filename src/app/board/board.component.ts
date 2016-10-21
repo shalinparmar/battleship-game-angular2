@@ -30,7 +30,7 @@ export class BoardComponent implements OnInit {
   }
 
   clickCell(id: number): void {
-    console.log('board - clickCell : ', id);
+    // console.log('board - clickCell : ', id);
 
     if (this.isDisableChanges) {
       return;
