@@ -27,7 +27,9 @@ export class SetPlayersComponent implements OnInit {
       name2: ''
     }
 
-    this.resetPlayers();
+    this.resetGame();
+
+
 
   }
 
@@ -37,7 +39,11 @@ export class SetPlayersComponent implements OnInit {
     this.router.navigate(['choose-location/1']);
   }
 
-  private resetPlayers() {
+  private resetGame() {
     this.gameService.resetPlayers();
+
+    this.gameService.setGameCode();
+
+
   }
 }

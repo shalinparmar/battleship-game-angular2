@@ -72,6 +72,7 @@ export class PlayGameComponent implements OnInit {
 
   onGameOver() {
     this.isGameOver = true;
+    this.gameService.resetPlayers()
   }
 
 }

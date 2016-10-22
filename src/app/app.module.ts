@@ -24,6 +24,7 @@ import { StartGameComponent } from './play-game/start-game/start-game.component'
 import { GameBoardComponent } from './play-game/game-board/game-board.component';
 import { DemoGameComponent } from './demo/demo-game/demo-game.component';
 import { GameCellComponent } from './play-game/game-cell/game-cell.component';
+import { GameCodeComponent } from './game-code/game-code.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { GameCellComponent } from './play-game/game-cell/game-cell.component';
     StartGameComponent,
     GameBoardComponent,
     DemoGameComponent,
-    GameCellComponent
+    GameCellComponent,
+    GameCodeComponent
   ],
   imports: [
     BrowserModule,

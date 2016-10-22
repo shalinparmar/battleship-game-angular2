@@ -7,6 +7,8 @@ export class GameService {
   public player1: Player;
   public player2: Player;
 
+  public gameCode: number = 0;
+
   constructor() {
     this.player1 = new Player();
     this.player2 = new Player();
@@ -24,7 +26,12 @@ export class GameService {
     this.player2.name = name2;
   }
 
-  //todo: XXX - game code !!! - random !
+  setGameCode(): void {
+    this.gameCode = Math.floor(Math.random() * 999) + 1;
+  }
 
+  deleteGameCode(): void {
+    this.gameCode = 0;
+  }
 
 }

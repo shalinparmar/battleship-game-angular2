@@ -1,3 +1,5 @@
+<app-game-code></app-game-code>
+
 <h3 [hidden]="isGameOver">
   <span> התור של </span>
   {{currentPlayer.name}}
@@ -8,7 +10,9 @@
   <span> !!! </span>
 </h2>
 
-<a [hidden]="!isGameOver" class="btn btn-success" routerLink="/set-players" routerLinkActive="active">משחק חדש</a>
+<div [hidden]="!isGameOver">
+  <a class="btn btn-success" routerLink="/set-players" routerLinkActive="active">משחק חדש</a>
+</div>
 
 <!--player 1-->
 

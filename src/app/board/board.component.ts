@@ -4,8 +4,8 @@ import { Ship } from "../shared/ship";
 
 @Component({
   selector: 'app-board',
-  styleUrls: ['./board.component.css'],
-  templateUrl: './board.component.html'
+  styleUrls: ['board.component.css'],
+  templateUrl: 'board.component.html'
 })
 export class BoardComponent implements OnInit {
 
