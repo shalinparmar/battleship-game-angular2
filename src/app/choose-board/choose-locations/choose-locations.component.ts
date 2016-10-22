@@ -32,6 +32,8 @@ export class ChooseLocationsComponent implements OnInit {
   shipsLengthList: Array<number> = new Array<number>();
   ships: Array<Ship>;
 
+  potentialCellIds: Array<number>;
+
   currentPotentialShip: PotentialShipComponent = new PotentialShipComponent();
   currentShipNumberOfCells: number;
 
@@ -43,6 +45,8 @@ export class ChooseLocationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.setPlayerByRouteParams();
+
+    this.setPotentialCellIds();
 
   }
 
@@ -189,13 +193,13 @@ export class ChooseLocationsComponent implements OnInit {
     else {
 
       this.isFinishedChoosing = true;
-/*
-      console.log('player 1 ships');
-      console.table(this.gameService.player1.ships);
+      /*
+       console.log('player 1 ships');
+       console.table(this.gameService.player1.ships);
 
-      console.log('player 2 ships');
-      console.table(this.gameService.player2.ships);
-      */
+       console.log('player 2 ships');
+       console.table(this.gameService.player2.ships);
+       */
     }
   }
 
@@ -233,9 +237,14 @@ export class ChooseLocationsComponent implements OnInit {
   }
 
   private isValidLocationForShip(shipToLocate: ShipToLocate): ValidationResult {
-    //todo: validation
-    //check if in board and also if not already by other ship
-    //tbd !!!
+    if (!this.isShipInValidCells(shipToLocate.locations)) {
+      return new ValidationResult(false, 'המיקום לא חוקי');
+    }
+
+    if (this.isShipInOtherShipAlreadyCells(shipToLocate.locations)) {
+      return new ValidationResult(false, 'המיקום בשימוש על ידי צוללת אחרת');
+    }
+
     return new ValidationResult(true, '');
   }
 
@@ -246,8 +255,28 @@ export class ChooseLocationsComponent implements OnInit {
 
   private verifyNotAlreadyChosen() {
     if (this.cellsOfShips.length > 0) {
-  //already chosen - prevent use back to see
+      //already chosen - prevent use back to see
       this.continueToNextStep();
     }
+  }
+
+  private setPotentialCellIds() {
+    this.potentialCellIds = this.boardService.getBoardCells();
+  }
+
+  private isShipInValidCells(locations: Array<number>) {
+    let notValidCells: Array<number> =
+      locations.filter((id) =>this.potentialCellIds.indexOf(id) ==-1);
+
+    return notValidCells.length==0;
+  }
+
+  private isShipInOtherShipAlreadyCells(locations: Array<number>) {
+    //todo: check !!!!
+    // let notValidCells: Array<number> =
+    //   locations.filter((id) =>this.potentialCellIds.indexOf(id) ==-1);
+    //
+    // return notValidCells.length==0;
+
   }
 }
