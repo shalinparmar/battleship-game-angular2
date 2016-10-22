@@ -24,5 +24,7 @@ export class GameService {
     this.player2.name = name2;
   }
 
+  //todo: XXX - game code !!! - random !
+
 
 }

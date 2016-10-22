@@ -13,7 +13,6 @@ import { PlayerClickCell } from "../../shared/player-click-cell";
 })
 export class PlayGameComponent implements OnInit {
 
-
   player1: Player;
   player2: Player;
 
@@ -33,7 +32,6 @@ export class PlayGameComponent implements OnInit {
     this.setFirstPlayer();
   }
 
-
   clickCell(playerClickCell: PlayerClickCell) {
 
     this.resetMessage();
@@ -45,14 +43,10 @@ export class PlayGameComponent implements OnInit {
     }
   }
 
-
   setPlayersInfo(): void {
     this.player1 = this.gameService.player1;
     this.player2 = this.gameService.player2;
-
-    // console.log('player1 ' , this.player1)
   }
-
 
   private setFirstPlayer() {
     this.currentPlayer = this.player1;
@@ -74,6 +68,10 @@ export class PlayGameComponent implements OnInit {
   private switchPlayer() {
     this.isTurnOfFirstPlayer = !this.isTurnOfFirstPlayer;
     this.setOtherPlayer();
+  }
+
+  onGameOver() {
+    this.isGameOver = true;
   }
 
 }

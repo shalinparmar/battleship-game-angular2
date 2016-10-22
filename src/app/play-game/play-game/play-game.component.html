@@ -1,8 +1,14 @@
-<h3 class="aaa">
+<h3 [hidden]="isGameOver">
   <span> התור של </span>
   {{currentPlayer.name}}
 </h3>
+<h2 [hidden]="!isGameOver" class="winner">
+  <span> ניצחון של </span>
+  {{currentPlayer.name}}
+  <span> !!! </span>
+</h2>
 
+<a [hidden]="!isGameOver" class="btn btn-success" routerLink="/set-players" routerLinkActive="active">משחק חדש</a>
 
 <!--player 1-->
 
@@ -13,11 +19,8 @@
     [isGameOver]="isGameOver"
     [isDisableChanges]="isGameOver || !isTurnOfFirstPlayer"
     [player]="player1"
-    (onCellClicked)="clickCell($event)"></app-game-board>
-  <!--[ships]="ships"-->
-  <!--[cellsOfShips]="cellsOfShips"-->
-  <!--[isDisableChanges]="isFinishedChoosing"-->
-  <!--(onCellClicked)="clickCell($event)"></app-board>-->
+    (onCellClicked)="clickCell($event)"
+    (onGameOver)="onGameOver()"></app-game-board>
 </div>
 
 <!--player 2-->
@@ -29,13 +32,8 @@
     [isGameOver]="isGameOver"
     [isDisableChanges]="isGameOver || isTurnOfFirstPlayer"
     [player]="player2"
-    (onCellClicked)="clickCell($event)"></app-game-board>
-  <!--{{player.name}}-->
-  <!--<app-board-->
-  <!--[ships]="ships"-->
-  <!--[cellsOfShips]="cellsOfShips"-->
-  <!--[isDisableChanges]="isFinishedChoosing"-->
-  <!--(onCellClicked)="clickCell($event)"></app-board>-->
+    (onCellClicked)="clickCell($event)"
+    (onGameOver)="onGameOver()"></app-game-board>
 </div>
 
 <hr/>
@@ -45,21 +43,17 @@
     isDisableChanges="true"
     [ships]="player1.ships"
     [cellsOfShips]="player1.cellsOfShips"
-    cellsOfShipsSimulation="cellsOfShipsSimulationEmptyArray"
-  >
+    cellsOfShipsSimulation="cellsOfShipsSimulationEmptyArray">
 
   </app-board>
 </div>
-
 
 <div class="col-lg-6">
   <app-board
     isDisableChanges="true"
     [ships]="player2.ships"
     [cellsOfShips]="player2.cellsOfShips"
-    cellsOfShipsSimulation="cellsOfShipsSimulationEmptyArray"
-  >
+    cellsOfShipsSimulation="cellsOfShipsSimulationEmptyArray">
 
   </app-board>
 </div>
-

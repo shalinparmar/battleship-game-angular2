@@ -1,0 +1,25 @@
+.winner {
+  color: blue;
+  animation: winner-color-changer 3s ease 0s;
+}
+
+@keyframes winner-color-changer {
+  0% {
+    color: #761c19;
+  }
+  20% {
+    color: green;
+  }
+  40% {
+    color: yellow;
+  }
+  60% {
+    color: darkmagenta;
+  }
+  80% {
+    color: springgreen;
+  }
+  100% {
+    color: blue;
+  }
+}

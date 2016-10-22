@@ -19,7 +19,7 @@ export class GameBoardComponent implements OnInit {
   @Input() isGameOver: boolean;
 
   @Output() private onCellClicked: EventEmitter<PlayerClickCell > = new EventEmitter<PlayerClickCell>();
-
+  @Output() private onGameOver: EventEmitter<void> = new EventEmitter<void>();
 
   //remove
   private rowsCollection: Array<number> = [10, 20, 30, 40, 50, 60, 70, 80];
@@ -61,14 +61,8 @@ export class GameBoardComponent implements OnInit {
     }
   }
 
-
   isContainShip(id: number): boolean {
     return this.player.cellsOfShips.indexOf(id) > -1;
-  }
-
-
-  isShipExposed(id: number): boolean {
-    return true;
   }
 
   private updateShipWithExposedCell(id: number) {
@@ -96,11 +90,16 @@ export class GameBoardComponent implements OnInit {
 
     // console.log('notExposedCells ', notExposedCells);
 
-    if (notExposedCells.length == 0) {
-      //todo:
-      // alert('finish expose ship');
-      this.showExposedShip(selectedShip);
+    if (notExposedCells.length > 0) {
+      return;
     }
+
+    selectedShip.isExposed = true;
+
+    this.showExposedShip(selectedShip);
+
+    this.checkIfAllShipExposed();
+
   }
 
   private showExposedShip(selectedShip: Ship) {
@@ -109,7 +108,6 @@ export class GameBoardComponent implements OnInit {
 
     // console.log('selectedShip.cells ', selectedShip.cells);
   }
-
 
   getCellInfo(id) {
     return (this.cells.filter((cell)=>cell.id == id))[0];
@@ -141,5 +139,21 @@ export class GameBoardComponent implements OnInit {
   private setBoardCellIsShipExposed(id: number) {
     let cell = (this.cells.filter((cell)=>cell.id == id))[0];
     cell.isShipExposed = true;
+  }
+
+  private checkIfAllShipExposed() {
+    let noExposedShips: Array<Ship> =
+      this.player.ships.filter((ship)=>!ship.isExposed);
+
+    console.log('noExposedShips.length ', noExposedShips.length)
+
+    if (noExposedShips.length == 0) {
+      this.gameOver();
+    }
+  }
+
+  private gameOver() {
+
+    this.onGameOver.emit();
   }
 }

@@ -60,7 +60,7 @@ td {
 }
 
 .exposed-ship {
-  background-color: rgba(24, 12, 9, 0.36);
+  background-color: lightslategray;
   animation: cell-color-changer 1.5s ease 0s;
 }
 
