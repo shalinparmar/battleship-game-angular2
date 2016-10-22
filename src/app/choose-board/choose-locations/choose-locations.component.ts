@@ -7,6 +7,7 @@ import { PotentialShipComponent } from "../potential-ship/potential-ship.compone
 import { ShipToLocate } from "../../shared/ship-to-locate";
 import { ValidationResult } from "../../shared/validation-result";
 import { CellInfo } from "../../shared/cell-info";
+import { BoardService } from "../../shared/board.service";
 
 @Component({
   selector: 'app-choose-locations',
@@ -35,6 +36,7 @@ export class ChooseLocationsComponent implements OnInit {
   currentShipNumberOfCells: number;
 
   constructor(private gameService: GameService,
+              private boardService: BoardService,
               private router: Router,
               private route: ActivatedRoute) {
   }
@@ -231,6 +233,7 @@ export class ChooseLocationsComponent implements OnInit {
   }
 
   private isValidLocationForShip(shipToLocate: ShipToLocate): ValidationResult {
+    //todo: validation
     //check if in board and also if not already by other ship
     //tbd !!!
     return new ValidationResult(true, '');
@@ -240,9 +243,6 @@ export class ChooseLocationsComponent implements OnInit {
   private resetMessage() {
     this.message = '';
   }
-
-  //todo: validation
-  //todo: game
 
   private verifyNotAlreadyChosen() {
     if (this.cellsOfShips.length > 0) {

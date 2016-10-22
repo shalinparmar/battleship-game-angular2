@@ -25,6 +25,7 @@ import { GameBoardComponent } from './play-game/game-board/game-board.component'
 import { DemoGameComponent } from './demo/demo-game/demo-game.component';
 import { GameCellComponent } from './play-game/game-cell/game-cell.component';
 import { GameCodeComponent } from './game-code/game-code.component';
+import { BoardService } from "./shared/board.service";
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { GameCodeComponent } from './game-code/game-code.component';
   providers: [
     appRoutingProviders,
     GameService,
-    DemoService
+    DemoService,
+    BoardService
   ],
   bootstrap: [AppComponent]
 })
