@@ -28,3 +28,8 @@
 .hide-real{
   display: none;
 }
+
+
+.player-turn{
+  color:darkgreen;
+}

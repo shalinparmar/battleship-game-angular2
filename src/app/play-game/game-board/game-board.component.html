@@ -1,6 +1,6 @@
 <div id="board">
   <h3>{{player.name}}</h3>
-  <h4><span>צריך למצוא את הצוללות של </span>{{otherPlayer.name}}</h4>
+  <h5>(<span>צריך למצוא את הצוללות של </span>{{otherPlayer.name}})</h5>
 
   <table border="1" [ngClass]="getBoardClass()">
     <tr *ngFor="let row of rowsCollection">
