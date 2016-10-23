@@ -23,3 +23,8 @@
     color: blue;
   }
 }
+
+
+.hide-real{
+  display: none;
+}

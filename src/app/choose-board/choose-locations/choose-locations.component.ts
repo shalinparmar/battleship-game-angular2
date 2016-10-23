@@ -223,7 +223,6 @@ export class ChooseLocationsComponent implements OnInit {
     this.cellsOfShips = this.player.cellsOfShips;
   }
 
-
   private continueToNextStep() {
 
     // console.log('next step');
@@ -248,7 +247,6 @@ export class ChooseLocationsComponent implements OnInit {
     return new ValidationResult(true, '');
   }
 
-
   private resetMessage() {
     this.message = '';
   }
@@ -266,17 +264,30 @@ export class ChooseLocationsComponent implements OnInit {
 
   private isShipInValidCells(locations: Array<number>) {
     let notValidCells: Array<number> =
-      locations.filter((id) =>this.potentialCellIds.indexOf(id) ==-1);
+      locations.filter((id) =>this.potentialCellIds.indexOf(id) == -1);
 
-    return notValidCells.length==0;
+    return notValidCells.length == 0;
   }
 
   private isShipInOtherShipAlreadyCells(locations: Array<number>) {
-    //todo: check !!!!
-    // let notValidCells: Array<number> =
-    //   locations.filter((id) =>this.potentialCellIds.indexOf(id) ==-1);
-    //
-    // return notValidCells.length==0;
 
+    let cells: Array <CellInfo>;
+    let isFoundShipInCells: boolean = false;
+    // console.log('locations', locations);
+    // console.log('this.ships', this.ships);
+    // debugger;
+    locations.forEach((id)=> {
+      this.player.ships.forEach((ship)=> {
+        cells = ship.cells.filter((cell)=>cell.id == id);
+        if (cells.length > 0) {
+          // console.log('isShipInOtherShipAlreadyCells', true);
+          //return true;
+          isFoundShipInCells = true;
+        }
+      });
+    });
+    // console.log('isShipInOtherShipAlreadyCells', false);
+
+    return isFoundShipInCells;
   }
 }
