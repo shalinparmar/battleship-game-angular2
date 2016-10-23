@@ -11,6 +11,7 @@ export class GameCellComponent implements OnInit {
 
 
   @Input() cellInfo: CellInfo;
+  @Input() isGameOver: boolean;
   // @Input() ships: Array<Ship>;
   // @Input() isContainShip: boolean;
 
@@ -37,7 +38,7 @@ export class GameCellComponent implements OnInit {
   getCellClass(): any {
     // console.log('getCellClass');
     return {
-      'exposed-ship': this.cellInfo.isShipExposed
+      'exposed-ship': this.cellInfo.isShipExposed || (this.isGameOver && this.cellInfo.isContainShip)
     };
   }
 

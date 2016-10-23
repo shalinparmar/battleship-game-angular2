@@ -6,6 +6,7 @@
       <app-game-cell *ngFor="let cell of cellsCollection"
                      [cellInfo]="getCellInfo(row+cell)"
                      [isDisableChanges]="isDisableChanges"
+                     [isGameOver]="isGameOver"
                      (onCellClicked)="clickCell($event)">
 
       </app-game-cell>
