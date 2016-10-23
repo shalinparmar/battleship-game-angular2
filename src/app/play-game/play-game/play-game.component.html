@@ -14,19 +14,6 @@
   <a class="btn btn-success" routerLink="/set-players" routerLinkActive="active">משחק חדש</a>
 </div>
 
-<!--player 1-->
-
-<div class="col-lg-6">
-  <!--player 1-->
-  <app-game-board
-    [isMyTurn]="isTurnOfFirstPlayer"
-    [isGameOver]="isGameOver"
-    [isDisableChanges]="isGameOver || !isTurnOfFirstPlayer"
-    [player]="player1"
-    (onCellClicked)="clickCell($event)"
-    (onGameOver)="onGameOver()"></app-game-board>
-</div>
-
 <!--player 2-->
 <div class="col-lg-6">
 
@@ -36,9 +23,26 @@
     [isGameOver]="isGameOver"
     [isDisableChanges]="isGameOver || isTurnOfFirstPlayer"
     [player]="player2"
+    [otherPlayer]="player1"
     (onCellClicked)="clickCell($event)"
     (onGameOver)="onGameOver()"></app-game-board>
 </div>
+
+
+<!--player 1-->
+
+<div class="col-lg-6">
+  <!--player 1-->
+  <app-game-board
+    [isMyTurn]="isTurnOfFirstPlayer"
+    [isGameOver]="isGameOver"
+    [isDisableChanges]="isGameOver || !isTurnOfFirstPlayer"
+    [player]="player1"
+    [otherPlayer]="player2"
+    (onCellClicked)="clickCell($event)"
+    (onGameOver)="onGameOver()"></app-game-board>
+</div>
+
 
 <div class="hide-real">
   <hr/>

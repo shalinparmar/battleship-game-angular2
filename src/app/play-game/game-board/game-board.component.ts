@@ -14,6 +14,7 @@ import { BoardService } from "../../shared/board.service";
 export class GameBoardComponent implements OnInit {
 
   @Input() player: Player;
+  @Input() otherPlayer : Player;
 
   @Input() isDisableChanges: boolean;
   @Input() isMyTurn: boolean;
@@ -64,12 +65,12 @@ export class GameBoardComponent implements OnInit {
   }
 
   isContainShip(id: number): boolean {
-    return this.player.cellsOfShips.indexOf(id) > -1;
+    return this.otherPlayer.cellsOfShips.indexOf(id) > -1;
   }
 
   private updateShipWithExposedCell(id: number) {
     let selectedShipArray: Array<Ship> =
-      this.player.ships.filter((ship) => ship.locations.indexOf(id) > -1);
+      this.otherPlayer.ships.filter((ship) => ship.locations.indexOf(id) > -1);
 
     if (selectedShipArray.length == 0) {
       return;
@@ -143,7 +144,7 @@ export class GameBoardComponent implements OnInit {
 
   private checkIfAllShipExposed() {
     let noExposedShips: Array<Ship> =
-      this.player.ships.filter((ship)=>!ship.isExposed);
+      this.otherPlayer.ships.filter((ship)=>!ship.isExposed);
 
     console.log('noExposedShips.length ', noExposedShips.length)
 
