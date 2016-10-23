@@ -39,7 +39,8 @@ export class GameBoardComponent implements OnInit {
 
   getBoardClass(): any {
     return {
-      'my-turn': this.isMyTurn
+      'my-turn': this.isMyTurn,
+      'spin': this.isGameOver
     };
   }
 

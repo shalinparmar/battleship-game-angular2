@@ -26,6 +26,8 @@ import { DemoGameComponent } from './demo/demo-game/demo-game.component';
 import { GameCellComponent } from './play-game/game-cell/game-cell.component';
 import { GameCodeComponent } from './game-code/game-code.component';
 import { BoardService } from "./shared/board.service";
+import { TestComponent } from './tests/test/test.component';
+// import { TestComponent } from './tests/test/test.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { BoardService } from "./shared/board.service";
     GameBoardComponent,
     DemoGameComponent,
     GameCellComponent,
-    GameCodeComponent
+    GameCodeComponent,
+    TestComponent,
+     // TestComponent
   ],
   imports: [
     BrowserModule,
