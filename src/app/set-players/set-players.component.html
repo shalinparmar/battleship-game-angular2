@@ -5,7 +5,6 @@
 </h2>
 
 
-
 <form #f="ngForm" novalidate (ngSubmit)="registerUsers(f.value, f.valid)">
 
   <div class="form-group">
@@ -16,6 +15,7 @@
            [ngModel]="users.name1"
            required validateNotEqual="name2"
            minlength="3"
+           maxlength="35"
            placeholder="שם המשתתף הראשון">
 
     <div [hidden]="name1.valid || (name1.pristine && !f.submitted || !name1.errors.required)"
@@ -24,7 +24,7 @@
     </div>
     <div [hidden]="name1.valid || (name1.pristine && !f.submitted || !name1.errors.minlength)"
          class="text-danger bg-danger">
-      שם המשתמש לפחות 3 תווים.
+      שם המשתמש לפחות 3 תווים ומקסימום 35 תווים.
     </div>
     <div [hidden]="name1.valid || (name1.pristine && !f.submitted)" class="text-danger bg-danger">
       שם המשתמש שונה משם המשתתף השני.
@@ -39,6 +39,7 @@
            [ngModel]="users.name2"
            required validateNotEqual="name1"
            minlength="3"
+           maxlength="30"
            placeholder="שם המשתתף השני">
 
     <div [hidden]="name2.valid || (name2.pristine && !f.submitted || !name2.errors.required)"
@@ -47,7 +48,7 @@
     </div>
     <div [hidden]="name2.valid || (name2.pristine && !f.submitted || !name2.errors.minlength)"
          class="text-danger bg-danger">
-      שם המשתמש לפחות 3 תווים.
+      שם המשתמש לפחות 3 תווים ומקסימום 35 תווים.
     </div>
     <div [hidden]="name2.valid || (name2.pristine && !f.submitted)" class="text-danger bg-danger">
       שם המשתמש שונה משם המשתתף הראשון.

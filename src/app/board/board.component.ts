@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Input } from "@angular/core/src/metadata/directives";
 import { Ship } from "../shared/ship";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-board',
@@ -20,9 +21,10 @@ export class BoardComponent implements OnInit {
 
   private rowsCollection: Array<number> = [10, 20, 30, 40, 50, 60, 70, 80];
   private cellsCollection: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8];
+  private subscriber: any;
 
-  constructor() {
-
+  constructor(private route: ActivatedRoute) {
+    this.subscribeToSesetPotentialShips();
   }
 
   ngOnInit(): void {
@@ -63,9 +65,21 @@ export class BoardComponent implements OnInit {
     return this.cellsOfShips.indexOf(id) > -1;
   }
 
-
   isContainShipSimulation(id: number): boolean {
     return this.cellsOfShipsSimulation.indexOf(id) > -1;
   }
 
+  private subscribeToSesetPotentialShips() {
+    this.subscriber = this.route.params.subscribe(
+      params => {
+        let id = +params['id'];
+
+        this.resetPotentialShips();
+      }
+    );
+  }
+
+  private resetPotentialShips() {
+    this.onCellMouseOut.emit(11);
+  }
 }
