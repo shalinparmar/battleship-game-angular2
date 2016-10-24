@@ -6,7 +6,6 @@ import { ShipToLocate } from "./ship-to-locate";
 import { Player } from "./player";
 import { DemoBoardInfo } from "./demo-board-info";
 import { DemoGameInfo } from "./demo-game-info";
-import { CellInfo } from "./cell-info";
 
 @Injectable()
 export class DemoService {

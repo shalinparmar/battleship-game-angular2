@@ -20,14 +20,11 @@ export class CellComponent implements OnInit {
   @Output() private onCellMouseOver: EventEmitter<number> = new EventEmitter<number>();
   @Output() private onCellMouseOut: EventEmitter<number> = new EventEmitter<number>();
 
-  isClickable: boolean;
-  isExposed: boolean;
-
   constructor() {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
   }
 
@@ -45,7 +42,7 @@ export class CellComponent implements OnInit {
     }
   }
 
-  clickCell() {
+  clickCell(): void {
     // console.log('clickCell');
 
     if (this.isDisableChanges) {
@@ -55,7 +52,7 @@ export class CellComponent implements OnInit {
     this.onCellClicked.emit(this.id);
   }
 
-  mouseOverCell() {
+  mouseOverCell(): void {
     // console.log('mouseOverCell');
 
     if (this.isDisableChanges) {
@@ -65,14 +62,14 @@ export class CellComponent implements OnInit {
     this.onCellMouseOver.emit(this.id);
   }
 
-  mouseOutCell() {
+  mouseOutCell(): void {
     // console.log('mouseOutCell');
 
     if (this.isDisableChanges) {
       return;
     }
 
-    this.onCellMouseOut.emit(this.id);
+    this.onCellMouseOut.emit();
   }
 
 }

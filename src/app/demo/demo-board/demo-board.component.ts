@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Input, Output } from "@angular/core/src/metadata/directives";
+import { Input } from "@angular/core/src/metadata/directives";
 import { Ship } from "../../shared/ship";
 
 

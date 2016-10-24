@@ -8,4 +8,5 @@ const routes: Routes = [];
   exports: [RouterModule],
   providers: []
 })
-export class BattleshipsRoutingModule { }
+export class BattleshipsRoutingModule {
+}

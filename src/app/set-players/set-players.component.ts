@@ -3,7 +3,6 @@ import { GameService } from "../shared/game.service";
 
 import { Users } from "../shared/users.interface";
 import { Router } from "@angular/router";
-import { Player } from "../shared/player";
 
 @Component({
   selector: 'app-set-players',
@@ -12,12 +11,10 @@ import { Player } from "../shared/player";
 })
 export class SetPlayersComponent implements OnInit {
 
-
   public users: Users;
 
   constructor(private gameService: GameService,
               private router: Router) {
-
   }
 
   ngOnInit(): void {
@@ -25,25 +22,27 @@ export class SetPlayersComponent implements OnInit {
     this.users = {
       name1: '',
       name2: ''
-    }
+    };
 
     this.resetGame();
-
-
-
   }
 
   registerUsers(model: Users, isValid: boolean): void {
-    this.gameService.registerPlayers(model.name1, model.name2)
+    this.gameService.registerPlayers(model.name1, model.name2);
 
     this.router.navigate(['choose-location/1']);
   }
 
-  private resetGame() {
+  private resetGame() :void{
     this.gameService.resetPlayers();
 
     this.gameService.setGameCode();
-
-
   }
+
+/*
+  onBack():void{
+    console.log('back !!!');
+  }
+*/
+
 }

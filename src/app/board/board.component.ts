@@ -1,5 +1,5 @@
 ///<reference path="../../../node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts"/>
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Input } from "@angular/core/src/metadata/directives";
 import { Ship } from "../shared/ship";
 import { ActivatedRoute } from "@angular/router";
@@ -18,14 +18,14 @@ export class BoardComponent implements OnInit {
 
   @Output() private onCellClicked: EventEmitter<number> = new EventEmitter<number>();
   @Output() private onCellMouseOver: EventEmitter<number> = new EventEmitter<number>();
-  @Output() private onCellMouseOut: EventEmitter<number> = new EventEmitter<number>();
+  @Output() private onCellMouseOut: EventEmitter<void> = new EventEmitter<void>();
 
   private rowsCollection: Array<number> = [10, 20, 30, 40, 50, 60, 70, 80];
   private cellsCollection: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8];
   private subscriber: any;
 
   constructor(private route: ActivatedRoute) {
-    this.subscribeToSesetPotentialShips();
+    this.subscribeToResetPotentialShips();
   }
 
   ngOnInit(): void {
@@ -52,14 +52,14 @@ export class BoardComponent implements OnInit {
     this.onCellMouseOver.emit(id);
   }
 
-  mouseOutCell(id: number): void {
+  mouseOutCell(): void {
     // console.log('board - mouseOutCell: ', id);
 
     if (this.isDisableChanges) {
       return;
     }
 
-    this.onCellMouseOut.emit(id);
+    this.onCellMouseOut.emit();
   }
 
   isContainShip(id: number): boolean {
@@ -70,7 +70,7 @@ export class BoardComponent implements OnInit {
     return this.cellsOfShipsSimulation.indexOf(id) > -1;
   }
 
-  private subscribeToSesetPotentialShips() {
+  private subscribeToResetPotentialShips(): void {
     this.subscriber = this.route.params.subscribe(
       params => {
         let id = +params['id'];
@@ -80,8 +80,8 @@ export class BoardComponent implements OnInit {
     );
   }
 
-  private resetPotentialShips() {
-    this.onCellMouseOut.emit(0);
+  private resetPotentialShips(): void {
+    this.onCellMouseOut.emit();
   }
 
   // ngOnDestroy() :void{

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from "../../shared/player";
 import { GameService } from "../../shared/game.service";
-import { Ship } from "../../shared/ship";
-import { ValidationResult } from "../../shared/validation-result";
-import { ShipToLocate } from "../../shared/ship-to-locate";
 import { PlayerClickCell } from "../../shared/player-click-cell";
 
 @Component({
@@ -26,13 +23,13 @@ export class PlayGameComponent implements OnInit {
   constructor(private gameService: GameService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.setPlayersInfo();
 
     this.setFirstPlayer();
   }
 
-  clickCell(playerClickCell: PlayerClickCell) {
+  clickCell(playerClickCell: PlayerClickCell): void {
 
     this.resetMessage();
 
@@ -52,7 +49,7 @@ export class PlayGameComponent implements OnInit {
     this.currentPlayer = this.player1;
   }
 
-  private setOtherPlayer() {
+  private setOtherPlayer(): void {
     if (this.currentPlayer == this.player1) {
       this.currentPlayer = this.player2;
     }
@@ -61,16 +58,16 @@ export class PlayGameComponent implements OnInit {
     }
   }
 
-  private resetMessage() {
+  private resetMessage(): void {
     this.message = '';
   }
 
-  private switchPlayer() {
+  private switchPlayer(): void {
     this.isTurnOfFirstPlayer = !this.isTurnOfFirstPlayer;
     this.setOtherPlayer();
   }
 
-  onGameOver() {
+  onGameOver(): void {
     this.isGameOver = true;
     this.gameService.resetPlayers()
   }

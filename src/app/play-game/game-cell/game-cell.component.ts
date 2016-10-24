@@ -9,30 +9,20 @@ import { CellInfo } from "../../shared/cell-info";
 })
 export class GameCellComponent implements OnInit {
 
-
   @Input() cellInfo: CellInfo;
   @Input() isGameOver: boolean;
-  // @Input() ships: Array<Ship>;
-  // @Input() isContainShip: boolean;
-
   @Input() isDisableChanges: boolean;
-  // @Input() isShipExposed: boolean;
-  //
-  // @Input() isMyTurn: boolean;
-  // @Input() isGameOver: boolean;
-
 
   @Output() private onCellClicked: EventEmitter<CellInfo> = new EventEmitter<CellInfo>();
 
 
-  isClickable: boolean;
   isExposed: boolean;
 
 
   constructor() {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   getCellClass(): any {
@@ -54,19 +44,14 @@ export class GameCellComponent implements OnInit {
   clickCell() {
     // console.log('clickCell');
 
-    // debugger;
-
     if (this.isDisableChanges) {
-
       // console.log('click disabled');
       return;
     }
 
-    // let cellInfo: CellInfo = new CellInfo(this.cellInfo.id, this.cellInfo.isContainShip);
     this.onCellClicked.emit(this.cellInfo);
 
     this.isExposed = true;
 
   }
-
 }

@@ -50,7 +50,7 @@ export class ChooseLocationsComponent implements OnInit {
 
   }
 
-  initDemoShips() {
+  initDemoShips(): void {
 
     let shipToAdd: ShipToLocate;
 
@@ -70,7 +70,7 @@ export class ChooseLocationsComponent implements OnInit {
     this.addShipToList(shipToAdd);
   }
 
-  addShipToList(shipToLocate: ShipToLocate) {
+  addShipToList(shipToLocate: ShipToLocate): void {
     let shipToAdd: Ship = new Ship(shipToLocate.locations);
 
     this.player.ships = [...this.player.ships, shipToAdd];
@@ -78,7 +78,7 @@ export class ChooseLocationsComponent implements OnInit {
     shipToLocate.locations.forEach((id)=>this.player.cellsOfShips.push(id));
   }
 
-  private addShipToSimulationList(shipToLocate: ShipToLocate) {
+  private addShipToSimulationList(shipToLocate: ShipToLocate): void {
     shipToLocate.locations.forEach((id)=>this.cellsOfShipsSimulation.push(id));
   }
 
@@ -86,7 +86,7 @@ export class ChooseLocationsComponent implements OnInit {
     this.cellsOfShipsSimulation = new Array<number>();
   }
 
-  private setPlayerByRouteParams() {
+  private setPlayerByRouteParams(): void {
     this.subscriber = this.route.params.subscribe(
       params => {
         let id = +params['id'];
@@ -98,7 +98,7 @@ export class ChooseLocationsComponent implements OnInit {
     );
   }
 
-  private initPage() {
+  private initPage(): void {
     // console.log('init page');
 
     this.resetVariables();
@@ -114,7 +114,7 @@ export class ChooseLocationsComponent implements OnInit {
     this.getNextShip();
   }
 
-  private resetVariables() {
+  private resetVariables(): void {
     this.message = '';
     this.isVertical = false;
 
@@ -128,12 +128,12 @@ export class ChooseLocationsComponent implements OnInit {
     this.currentShipNumberOfCells = 0;
   }
 
-  initShipsLengthList() {
+  initShipsLengthList(): void {
     //todo: get from config
     this.shipsLengthList = [2, 3, 3, 4, 5]
   }
 
-  switchDirection() {
+  switchDirection(): void {
     this.isVertical = !this.isVertical;
   }
 
@@ -142,13 +142,13 @@ export class ChooseLocationsComponent implements OnInit {
     this.resetSettings();
   }
 
-  private resetSettings() {
+  private resetSettings(): void {
     this.isVertical = false;
     this.currentShip = null;
     this.currentPotentialShip = null;
   }
 
-  clickCell(id) {
+  clickCell(id): void {
 
     this.resetMessage();
 
@@ -169,7 +169,7 @@ export class ChooseLocationsComponent implements OnInit {
     }
   }
 
-  mouseOverCell(id) {
+  mouseOverCell(id): void {
     let shipToLocate: ShipToLocate =
       new ShipToLocate(this.isVertical, this.currentShipNumberOfCells, id);
 
@@ -180,7 +180,7 @@ export class ChooseLocationsComponent implements OnInit {
     }
   }
 
-  mouseOutCell(id) {
+  mouseOutCell(): void {
     this.clearSimulationList();
   }
 
@@ -203,7 +203,7 @@ export class ChooseLocationsComponent implements OnInit {
     }
   }
 
-  private displayValidationMessage(message: string) {
+  private displayValidationMessage(message: string): void {
     this.message = message;
   }
 
@@ -223,7 +223,7 @@ export class ChooseLocationsComponent implements OnInit {
     this.cellsOfShips = this.player.cellsOfShips;
   }
 
-  private continueToNextStep() {
+  private continueToNextStep(): void {
 
     // console.log('next step');
 
@@ -247,29 +247,29 @@ export class ChooseLocationsComponent implements OnInit {
     return new ValidationResult(true, '');
   }
 
-  private resetMessage() {
+  private resetMessage(): void {
     this.message = '';
   }
 
-  private verifyNotAlreadyChosen() {
+  private verifyNotAlreadyChosen(): void {
     if (this.cellsOfShips.length > 0) {
       //already chosen - prevent use back to see
       this.continueToNextStep();
     }
   }
 
-  private setPotentialCellIds() {
+  private setPotentialCellIds(): void {
     this.potentialCellIds = this.boardService.getBoardCells();
   }
 
-  private isShipInValidCells(locations: Array<number>) {
+  private isShipInValidCells(locations: Array<number>): boolean {
     let notValidCells: Array<number> =
       locations.filter((id) =>this.potentialCellIds.indexOf(id) == -1);
 
     return notValidCells.length == 0;
   }
 
-  private isShipInOtherShipAlreadyCells(locations: Array<number>) {
+  private isShipInOtherShipAlreadyCells(locations: Array<number>): boolean {
 
     let cells: Array <CellInfo>;
     let isFoundShipInCells: boolean = false;
@@ -290,4 +290,6 @@ export class ChooseLocationsComponent implements OnInit {
 
     return isFoundShipInCells;
   }
+
+
 }

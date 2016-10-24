@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-start-game',
@@ -8,14 +8,13 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class StartGameComponent implements OnInit {
 
-  constructor(private router: Router,
-              private route: ActivatedRoute) {
+  constructor(private router: Router) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  startGame() {
+  startGame(): void {
     this.router.navigate(['play-game']);
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Ship } from "../../shared/ship";
-import { ShipToLocate } from "../../shared/ship-to-locate";
 import { DemoService } from "../../shared/demo.service";
 import { DemoBoardInfo } from "../../shared/demo-board-info";
 
@@ -21,7 +20,7 @@ export class DemoPlayerComponent implements OnInit {
     this.initDemoShips();
   }
 
-  initDemoShips() {
+  initDemoShips(): void {
     let demoBoardInfo: DemoBoardInfo = this.demoService.getDemoShipsForDemoBoard();
     this.cellsOfShips = demoBoardInfo.cellsOfShips;
     this.ships = demoBoardInfo.ships;

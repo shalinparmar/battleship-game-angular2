@@ -1,21 +1,14 @@
-h2{
+h2 {
   margin-top: 50px;
 }
 
-.bg-danger{
-  max-width:300px;
+.bg-danger {
+  max-width: 300px;
 }
 
-input[type=text]{
-  max-width:300px;
+input[type=text] {
+  max-width: 300px;
 }
-
-/*
-control-messages div {
-  color: #E82C0C;
-  margin: 1px 0;
-}
-*/
 
 .margin-20 {
   margin-top: 20px;

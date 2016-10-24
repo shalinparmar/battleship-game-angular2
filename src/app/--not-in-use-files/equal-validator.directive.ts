@@ -23,7 +23,7 @@ export class EqualValidator implements Validator {
     // self value
     let v = c.value;
 
-    // control vlaue
+    // control value
     let e = c.root.find(this.validateEqual);
 
     // value not equal
