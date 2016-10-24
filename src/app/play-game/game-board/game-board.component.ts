@@ -146,7 +146,7 @@ export class GameBoardComponent implements OnInit {
     let noExposedShips: Array<Ship> =
       this.otherPlayer.ships.filter((ship)=>!ship.isExposed);
 
-    console.log('noExposedShips.length ', noExposedShips.length)
+    // console.log('noExposedShips.length ', noExposedShips.length)
 
     if (noExposedShips.length == 0) {
       this.gameOver();

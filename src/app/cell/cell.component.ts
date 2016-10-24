@@ -46,7 +46,7 @@ export class CellComponent implements OnInit {
   }
 
   clickCell() {
-    console.log('clickCell');
+    // console.log('clickCell');
 
     if (this.isDisableChanges) {
       return;
