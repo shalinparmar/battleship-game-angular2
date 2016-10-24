@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+///<reference path="../../../node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts"/>
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { Input } from "@angular/core/src/metadata/directives";
 import { Ship } from "../shared/ship";
 import { ActivatedRoute } from "@angular/router";
@@ -80,6 +81,10 @@ export class BoardComponent implements OnInit {
   }
 
   private resetPotentialShips() {
-    this.onCellMouseOut.emit(11);
+    this.onCellMouseOut.emit(0);
   }
+
+  // ngOnDestroy() :void{
+  //   this.subscriber.unsunscribe();
+  // }
 }
