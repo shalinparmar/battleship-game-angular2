@@ -112,11 +112,11 @@ export class GameBoardComponent implements OnInit {
     // console.log('selectedShip.cells ', selectedShip.cells);
   }
 
-  getCellInfo(id) {
+  getCellInfo(id : number) {
     return (this.cells.filter((cell)=>cell.id == id))[0];
   }
 
-  createCellInfo(id) {
+  createCellInfo(id: number) {
     let cellInfo: CellInfo = new CellInfo(id, this.isContainShip(id));
 
     this.cells.push(cellInfo);

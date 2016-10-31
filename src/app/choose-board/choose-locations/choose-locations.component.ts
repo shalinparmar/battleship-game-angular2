@@ -169,7 +169,7 @@ export class ChooseLocationsComponent implements OnInit {
     }
   }
 
-  mouseOverCell(id): void {
+  mouseOverCell(id: number): void {
     let shipToLocate: ShipToLocate =
       new ShipToLocate(this.isVertical, this.currentShipNumberOfCells, id);
 
